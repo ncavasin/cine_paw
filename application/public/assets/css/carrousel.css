@@ -44,7 +44,7 @@
     border: none;
     width: 5vw;
     height: 5vh;
-    background-color: var(--btnSlider);
+    background-color: var(--primary);
     color: white;
     font-weight: bolder;
     border-radius: 5px;
@@ -52,8 +52,9 @@
 }
 
 .btn_left:hover, .btn_right:hover, .dot:hover{
-    background-color: white;
-    color: var(--btnSlider);
+    background-color: var(--background);
+    color: var(--primary);
+    border: 1px solid var(--primary)
 }
 
 .btn_left{
