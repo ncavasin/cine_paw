@@ -1,0 +1,8 @@
+*.code*
+*.twig
+.env
+vendor/
+logs/
+files/
+twig/
+cache_twig/
