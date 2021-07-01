@@ -7,10 +7,9 @@ class App{
                 let mainMenu = new MainMenu("nav");
             })
 
-
-            paw.loadScript('SubMenu', '/js/components/SubMenu.js', () => {
-                let subMenu = new SubMenu("nav ul li");
-            })
+            // paw.loadScript('SubMenu', '/js/components/SubMenu.js', () => {
+            //     let subMenu = new SubMenu("nav ul li");
+            // })
         });
     }
 

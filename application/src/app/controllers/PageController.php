@@ -46,7 +46,7 @@ class PageController extends Controller{
     }
 
     public function index(){
-        $titulo = 'Dental Medical Group';
+        $titulo = 'Cine PAW';
         require $this->viewsDir . 'index_view.php';
     }
 

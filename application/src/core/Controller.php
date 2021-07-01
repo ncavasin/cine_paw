@@ -21,10 +21,6 @@ class Controller {
     public function __construct(){
         global $connection, $log;
         $this->viewsDir = __DIR__ . "/../app/views/";
-        $this->contact = [
-            'href' => 'tel:+549234642-4593',
-            'name' => '+54 9 2346 42-4593'
-        ];
         $this->userOptions = [
             [
                 'href' => '/login',
@@ -42,15 +38,15 @@ class Controller {
             ],
             [
                 'href' => '/services',
-                'name' => 'Servicios'
+                'name' => 'Cartelera'
             ],
             [
                 'href' => '/coverages',
-                'name' => 'Coberturas'
+                'name' => 'Buscar'
             ],
             [
                 'href' => '/myturns',
-                'name' => 'Turnos'
+                'name' => 'Próximamente'
             ]
         ];
         $this->footerLinks = [

@@ -5,15 +5,14 @@
     font-family: 'Roboto', sans-serif;
     
     --main_background: #121212;
+    --primary: #f34213ff;
+    --secondary: #57886cff;
+    --text: white;
+    --gris: #C4C4C4;
     --level1: #212121;
     --level2: #313131;
     --paper: #424242;
-
-    --primary: #f34213ff;
-    --secondary: #57886cff;
-    --white: var(--secondary);
-    --gris: #C4C4C4;
-
+    
     --success: #357a38; 
     --error: #f44336;
     --warn: #b26a00;
@@ -29,102 +28,82 @@
 *{
     list-style: none;
     text-decoration: none;
+
 }
 
 body{
+    background-color: var(--main_background);
+    color: var(--text);
     min-height: 100vh;
     width: 100%;
     line-height: 1.25; 
 }
 
 a{
-    color: white;
+    color: var(--text);
 }
 
 header{
-    background-color: white;
     position: sticky;
     top: 0;
     width: 100%;
-    display: flex;
-    flex-flow: column;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+                        "logo nav";
     z-index: 10;
-}
-
-.menu_user{
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-end;
-    align-content: center;
-    font-size: smaller;
-}
-
-.telefono{
-    display: none;
-    color: var(--primary);
-}
-
-.menu_user li{
-    height: 100%;
-}
-
-.user_opt{
-    color: var(--primary);
-    display: inline-block;
-    text-decoration: underline;
-    margin: 0 .25rem;
-    padding: .5rem .5rem;
-}
-
-.user_opt:hover,
-.telefono:hover{
     background-color: var(--primary);
-    color: white;
-    font-weight: bolder;
-    height: 100%;
+}
+
+.logotipo{
+    grid-area: logo;
+    cursor: pointer;
+    margin: .5rem 0;
+    justify-self: left;
+    align-self: top;
+    text-align: center;
+} 
+
+.logotipo:hover{
+    box-shadow: var(--level2);
+}
+
+.logotipo > a{
+    color: var(--text);
+    display: inline-block;
+    font-weight: 900;
+    padding: 1rem;
+}
+
+.logotipo > a:hover{
+    font-size: larger;
+    transition: all 0.5s;
 }
 
 nav{
+    grid-area: nav;
     text-align: left;
     padding: .5rem 0 .5rem 0;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 20% 70% 10%;
     grid-template-rows: auto auto;
     grid-template-areas: 
-                        "logo menu btn"
-                        "mobi mobi mobi";
+                        "user main burger"
+                        "mobi mobi mobi"; */
+
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+                        "user burger"
+                        "main main ";
     background-color: var(--primary);
     position: sticky;
 }
 
-.logotipo::before{
-    content: '';
-    position: absolute;
-    background-color: white;
-    transform: skew(25deg);
-    width: 1rem;
-    height: 100%;
-    margin-left: 1.5rem;
-}
-
-.logotipo{
-    cursor: pointer;
-    background-color: var(--primary);
-    margin: .5rem 0;
-    position: relative;
-} 
-
-
-.logotipo > a{
-    display: inline-block;
-    min-width: 3rem;
-    font-weight: 900;
-    margin-left: 3.5rem;
-}
-
-
 .hamburguesa{
-    grid-area: btn;
+    grid-area: burger;
     justify-self: flex-end;
     margin-right: .5rem;
     background-color: var(--primary);
@@ -143,16 +122,45 @@ nav{
     transition-duration: .75s;
 }
 
-/* main menu begins */
+.menu_user{
+    grid-area: user;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-content: center;
+    font-size: smaller;
+}
+
+
+.menu_user li{
+    align-self: center;
+    justify-self: center;
+    height: 100%;
+}
+
+.user_opt{
+    height: 100%;
+    padding: 1rem;
+}
+
+.user_opt:hover{
+    background-color: var(--primary);
+    color: white;
+    font-weight: bolder;
+    height: 100%;
+}
+
 .main_menu{
+    grid-area: main;
     display: none;
 }
 
 .main_menu_cerrado{
+    background-color: var(--primary);
+    color: var(--text);
     grid-area: mobi;
     display: flex;
     flex-flow: column;
-    background-color: var(--secondary);
     justify-self: center;
 	width: 100%;
     height: 100%;
@@ -183,16 +191,6 @@ nav{
 }
 /* main menu end */
 
-/* opcion nuestros servicios */
-.sub_menu_head{
-    display: grid;
-    grid-template-columns: auto 10vw;
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-                        "val btn"
-                        "ul  ul";
-} 
-
 .main_menu_cerrado > li:nth-of-type(2) > a:hover{
     font-weight:  bolder;
     transition-duration: .75s;
@@ -217,29 +215,6 @@ nav{
     align-self: center;
 }
 
-.sub_menu_list{
-    display: none;
-    grid-area: ul;
-    background-color: var(--gris);
-    border-radius: 5px;
-    transition: all .75s;
-}
-
-.sub_menu_list_item{
-    padding: 1rem 0;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    transition: all .75s;
-}
-
-.sub_menu_list_item:hover, .sub_menu_list:active{
-    background-color: var(--violeta);
-    font-size: larger;
-    transition-duration: .5s;
-}
-/* submenu ends */
 
 @media (min-width: 555px) {
 
@@ -276,6 +251,10 @@ nav{
 
     .logotipo{
         justify-self: left;
+    }
+
+    .logotipo > a{
+        margin: 0 .5rem;
     }
 
     .main_menu{
