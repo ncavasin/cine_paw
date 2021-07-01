@@ -3,20 +3,27 @@
 
 :root{
     font-family: 'Roboto', sans-serif;
-    --celeste: #0eacd8;
-    --azul: #003b70;
-    --violeta: #4f2c7f;
+    
+    --main_background: #121212;
+    --level1: #212121;
+    --level2: #313131;
+    --paper: #424242;
+
+    --primary: #f34213ff;
+    --secondary: #;
+    --white: var(--secondary);
     --gris: #C4C4C4;
+
     --success: #357a38; 
     --error: #f44336;
     --warn: #b26a00;
+
     --border_value: 25px;
     --transition_time: .25s;
     --min_width: 481px;
     
     --padding_section: 2rem;
     --margin_section: 2rem;
-    --border_section:
 }
 
 *{
@@ -54,7 +61,7 @@ header{
 
 .telefono{
     display: none;
-    color: var(--azul);
+    color: var(--primary);
 }
 
 .menu_user li{
@@ -62,7 +69,7 @@ header{
 }
 
 .user_opt{
-    color: var(--azul);
+    color: var(--primary);
     display: inline-block;
     text-decoration: underline;
     margin: 0 .25rem;
@@ -71,7 +78,7 @@ header{
 
 .user_opt:hover,
 .telefono:hover{
-    background-color: var(--azul);
+    background-color: var(--primary);
     color: white;
     font-weight: bolder;
     height: 100%;
@@ -86,7 +93,7 @@ nav{
     grid-template-areas: 
                         "logo menu btn"
                         "mobi mobi mobi";
-    background-color: var(--azul);
+    background-color: var(--primary);
     position: sticky;
 }
 
@@ -102,7 +109,7 @@ nav{
 
 .logotipo{
     cursor: pointer;
-    background-color: var(--azul);
+    background-color: var(--primary);
     margin: .5rem 0;
     position: relative;
 } 
@@ -120,7 +127,7 @@ nav{
     grid-area: btn;
     justify-self: flex-end;
     margin-right: .5rem;
-    background-color: var(--azul);
+    background-color: var(--primary);
     border: none;
     cursor: pointer;
     color: white;
@@ -132,7 +139,7 @@ nav{
 
 .hamburguesa:hover{
     background-color: white;
-    color: var(--azul);
+    color: var(--primary);
     transition-duration: .75s;
 }
 
@@ -170,7 +177,7 @@ nav{
 }
 
 .main_menu_cerrado > li > a:hover{
-    color: var(--azul);
+    color: var(--primary);
     background-color: white;
 	transition-duration: .75s;
 }
@@ -288,7 +295,7 @@ nav{
     
     .main_menu_opt > a:hover{
         background-color: white;
-        color: var(--azul);
+        color: var(--primary);
         transition: all .5s;
         border-radius: 10px;
     }

@@ -2,7 +2,7 @@
     align-self: center;
     justify-self: stretch;
     border-radius: 10px;
-    background-color: var(--azul);
+    background-color: var(--primary);
     color: white;
     border: 1px solid white;
     min-width: 10rem;
@@ -16,24 +16,24 @@
 
 .main_button:not([disabled]):hover{
     transition: var(--transition_time);
-    color: var(--azul);
+    color: var(--primary);
     background-color: white;
-    border: 1px var(--azul) solid;
+    border: 1px var(--primary) solid;
     padding: 0 .125rem 0 .125rem;
     cursor: pointer
 }
 
 .limpiar{
     width: 10rem;
-    color: var(--azul);
-    border: 1px solid var(--azul);
+    color: var(--primary);
+    border: 1px solid var(--primary);
     border-radius: 10px;
     margin: 2rem
 }
 
 .limpiar:hover{
     transition: var(--transition_time);
-    background-color: var(--azul);
+    background-color: var(--primary);
     color: white;
     cursor: pointer
 }

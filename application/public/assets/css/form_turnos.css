@@ -57,7 +57,7 @@ ul.open > * {
 }
 
 li.selected {
-    border: 1.5px solid var(--azul);
+    border: 1.5px solid var(--primary);
     background-color: var(--celeste);
     color: white;
     border-radius: 10px;

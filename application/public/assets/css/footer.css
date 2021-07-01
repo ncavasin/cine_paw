@@ -1,6 +1,6 @@
 footer{
     grid-area: footer;
-    background-color: var(--azul);
+    background-color: var(--primary);
     color: white;
     display: grid;
     grid-template-columns: 1fr;
@@ -23,7 +23,7 @@ address{
                         "dir"
                         "cp"
                         "prov";
-    background-color: rgba(var(--azul),  .25);
+    background-color: rgba(var(--primary),  .25);
 }
 
 address > p{
@@ -61,7 +61,7 @@ footer > ul > li > a{
 footer > ul > li > a:hover,
 footer > ul > li > a > i:hover{
     background-color: white;
-    color: var(--azul);
+    color: var(--primary);
 }
 .gg-instagram, .shape_facebook, .shape_mail{
     color: white;

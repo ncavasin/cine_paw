@@ -13,7 +13,7 @@
     }
 
     .drag_drop{
-        background-color:var(--azul);
+        background-color:var(--primary);
     }
     .drag_enter{
         background-color: var(--enter);

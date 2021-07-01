@@ -7,7 +7,7 @@ form {
 
 form > a{
     margin-bottom: 2rem;
-    color: var(--azul);
+    color: var(--primary);
 }
 
 .busqueda{
@@ -17,7 +17,7 @@ form > a{
 .lista_cobertura > li::before{
     content: '>';
     font-weight: bolder;
-    color: var(--azul);
+    color: var(--primary);
 }
 
 

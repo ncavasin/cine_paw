@@ -12,7 +12,7 @@ h2{
     margin-bottom: 2rem;
     font-size: x-large;
     font-weight: bolder;
-    color: var(--azul);
+    color: var(--primary);
 }
 
 section > p{
@@ -41,7 +41,7 @@ input:focus, textarea:focus, select:focus{
 .navigation-button {
     padding: 1rem;
     margin: 1rem;
-    background-color: var(--azul);
+    background-color: var(--primary);
     border-radius: var(--border_value);
     position: relative;
     display: inline-block;
@@ -49,8 +49,8 @@ input:focus, textarea:focus, select:focus{
 }
 
 .navigation-button:hover {
-    color: var(--azul);
+    color: var(--primary);
     background-color: white;
-    border: 1px solid var(--azul);
+    border: 1px solid var(--primary);
     transition: all .5s;
 }
