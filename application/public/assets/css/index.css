@@ -56,12 +56,12 @@ ul .button:hover{
     display: flex; 
     flex-direction: column;
     flex-wrap: wrap;
-    margin: -2rem;
+    margin: -1rem;
     align-items: stretch;
 }
 
 .peliculas li {
-    margin: 2rem;
+    margin: 1rem;
 }
 
 @media (min-width: 480px){
