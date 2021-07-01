@@ -17,31 +17,51 @@
     require 'parts/header_view.php';
     ?>
     <main>
-        <section id="carrousel" class="car_container">
+        <section id="carrousel" class="car_container transparent">
             <progress max="100" min="0"></progress> 
             <figure id="slides_container" class="slides_container">
-                <img src="/assets/img/carrousel0.jpg" class="slide efecto2"/>
-                <img src="/assets/img/carrousel1.jpg" class="slide efecto1"/>
-                <img src="/assets/img/carrousel2.jpg" class="slide efecto3"/>
+                <img src="/assets/img/carousel0.jpg" class="slide efecto2"/>
+                <img src="/assets/img/carousel1.jpg" class="slide efecto1"/>
+                <img src="/assets/img/carousel2.jpg" class="slide efecto3"/>
             </figure>
         </section>
-        <section>
-            <h2>NUESTROS SERVICIOS</h2>
-            <ul>
+        <section class='transparent'>
+            <h2>Cartelera</h2>
+            <ul class='peliculas'>
                 <li>
-                    <h3><a href="services/audiologia" target="_self" class='button servicio'>Audiología</a></h3>
+                    <img src='/assets/img/portada.jpg' class='portada'/>
+                    <p>Pelicula 1</p>
+                    <p>Duracion 120 min</p>
                 </li>
                 <li>
-                    <h3><a href="services/cardiologia" target="_self" class='button servicio'>Cardiología</a></h3>
+                    <img src='/assets/img/portada.jpg' class='portada'/>
+                    <p>Pelicula 2</p>
+                    <p>Duracion 120 min</p>
                 </li>
                 <li>
-                    <h3><a href="services/densitometria" target="_self" class='button servicio'>Densitometría</a></h3>
+                    <img src='/assets/img/portada.jpg' class='portada'/>
+                    <p>Pelicula 3</p>
+                    <p>Duracion 120 min</p>
                 </li>
                 <li>
-                    <h3><a href="services/ecografia_doppler" target="_self" class='button servicio'>Ecografía Doppler</a></h3>
+                    <img src='/assets/img/portada.jpg' class='portada'/>
+                    <p>Pelicula 4</p>
+                    <p>Duracion 120 min</p>
                 </li>
                 <li>
-                    <h3><a href="services" target="_self" class='button servicio'>Ver más</a></h3>
+                    <img src='/assets/img/portada.jpg' class='portada'/>
+                    <p>Pelicula 5</p>
+                    <p>Duracion 120 min</p>
+                </li>
+                <li>
+                    <img src='/assets/img/portada.jpg' class='portada'/>
+                    <p>Pelicula 6</p>
+                    <p>Duracion 120 min</p>
+                </li>
+                <li>
+                    <img src='/assets/img/portada.jpg' class='portada'/>
+                    <p>Pelicula 7</p>
+                    <p>Duracion 120 min</p>
                 </li>
             </ul>
         </section>
