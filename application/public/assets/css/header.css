@@ -17,7 +17,7 @@
     --error: #f44336;
     --warn: #b26a00;
 
-    --border_value: 25px;
+    --border_value: 15px;
     --transition_time: .25s;
     --min_width: 481px;
     
@@ -85,12 +85,6 @@ nav{
     grid-area: nav;
     text-align: left;
     padding: .5rem 0 .5rem 0;
-    /* display: grid;
-    grid-template-columns: 20% 70% 10%;
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-                        "user main burger"
-                        "mobi mobi mobi"; */
 
     display: grid;
     grid-template-columns: 80% 20%;
@@ -129,25 +123,26 @@ nav{
     justify-content: flex-end;
     align-content: center;
     font-size: smaller;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 
 .menu_user li{
-    align-self: center;
-    justify-self: center;
-    height: 100%;
+    
 }
 
 .user_opt{
     height: 100%;
     padding: 1rem;
+    border-radius: var(--border_value);
 }
 
 .user_opt:hover{
-    background-color: var(--primary);
-    color: white;
+    background-color: var(--text);
+    color: var(--primary);
+    transition: all .5s;
     font-weight: bolder;
-    height: 100%;
 }
 
 .main_menu{
