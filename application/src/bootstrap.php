@@ -22,11 +22,11 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
 # Twig
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/app/views/');
-$twig = new \Twig\Environment($loader, [
-    'cache' => __DIR__ . '/app/views/cache_twig/',
-]);
-$twig->render('index_view.twig');
+// $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/app/views/');
+// $twig = new \Twig\Environment($loader, [
+//     'cache' => __DIR__ . '/app/views/cache_twig/',
+// ]);
+// $twig->render('index_view.twig');
 
 # Load enviroment vars
 $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');

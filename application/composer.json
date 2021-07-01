@@ -1,6 +1,6 @@
 {
     "name": "paw/cursada_2021",
-    "description": "TPFinal Cavasin-Marcello",
+    "description": "TPFinal paw",
     "type": "library",
     "keywords": [
         "php", "paw", "dynamic website", "cinema"
@@ -20,8 +20,8 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "filp/whoops": "^2.13",
+        "php": ">= 7.4.0",
+        "filp/whoops": "~2",
         "monolog/monolog": "^2.2",
         "vlucas/phpdotenv": "^5.3",
         "twig/twig": "^3.3"
