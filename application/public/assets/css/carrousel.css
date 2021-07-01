@@ -1,4 +1,4 @@
-:root{
+x:root{
     --btnSlider: #bbb;
 }
 
@@ -129,6 +129,17 @@
     from    {transform: skew(90deg);}
     to      {transform: skew(0deg);}
 }
+
+.efecto4{
+    animation-name: efecto4;
+    animation-duration: 1.25s;
+}
+
+@keyframes efecto4{
+    from    {transform: skew(45deg);}
+    to      {transform: skew(0deg);}
+}
+
 
 progress{
     appearance: none;

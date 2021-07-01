@@ -124,12 +124,12 @@ nav{
     align-content: center;
     font-size: smaller;
     align-items: center;
-    justify-content: flex-end;
 }
 
 
 .menu_user li{
-    
+    margin: 0 .25rem;
+    margin: 0 1rem;
 }
 
 .user_opt{

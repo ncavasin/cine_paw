@@ -20,9 +20,9 @@
         <section id="carrousel" class="car_container transparent">
             <progress max="100" min="0"></progress> 
             <figure id="slides_container" class="slides_container">
-                <img src="/assets/img/carousel0.jpg" class="slide efecto2"/>
-                <img src="/assets/img/carousel1.jpg" class="slide efecto1"/>
-                <img src="/assets/img/carousel2.jpg" class="slide efecto3"/>
+                <img src="/assets/img/carousel0.jpg" class="slide efecto4"/>
+                <img src="/assets/img/carousel1.jpg" class="slide efecto4"/>
+                <img src="/assets/img/carousel2.jpg" class="slide efecto4"/>
             </figure>
         </section>
         <section class='transparent'>
