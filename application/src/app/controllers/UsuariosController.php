@@ -63,9 +63,9 @@ class UsuariosController extends Controller{
         }
 
         # verificar que el mail no esté registrado, le paso todos los values pero usa solo mail
-        $isValid = $this->model->get($values);
-
+        
         if ($isValid) {
+            $isValid = $this->model->get($values);
             $result = $this->model->set($values);
             foreach($result as $item) {
                 $isValid = is_null($item['error']) && $isValid;
