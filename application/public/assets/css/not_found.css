@@ -1,0 +1,20 @@
+
+main{
+    margin: var(--margin_section);
+    background-color: var(--azul);
+    border-radius: var(--border_value);
+    height: 70vh;
+    background-image: url("/assets/img/not_found.jpg");
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-position: center;
+}
+
+main > h1{
+    text-align:center;
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+    padding: 2rem 0;
+}
+

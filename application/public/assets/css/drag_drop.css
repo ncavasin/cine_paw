@@ -1,0 +1,42 @@
+:root{
+    --enter: #d3dde8;
+    --dropped: #b3d1f2;
+    --min-width: 481px;
+}
+
+@media (min-width: 481px){
+
+    .drop_zone{
+        text-align: center;
+        border: 2px dashed var(--gris);
+        transition: all .25s;
+    }
+
+    .drag_drop{
+        background-color:var(--azul);
+    }
+    .drag_enter{
+        background-color: var(--enter);
+    }
+
+    .dropped_file{
+        font-size: small;
+        font-style: italic;
+        margin: 1rem 0;
+    }
+
+    .dropped_file::before{
+        content: 'Archivo: ';
+    }
+
+    .drop_container{
+        text-align: center;
+        background-color: var(--dropped);
+        border: 1px solid var(--gris);
+        border-radius: 25px;
+        transition: all .5s;
+    }
+    
+}
+
+

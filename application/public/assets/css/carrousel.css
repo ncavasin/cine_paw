@@ -1,0 +1,134 @@
+:root{
+    --btnSlider: #bbb;
+}
+
+.car_container{
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 85% 15%;
+    grid-template-areas: 
+                        "s s s"
+                        "l d r"
+}
+
+.slides_container{
+    grid-area: s;
+    height: 100%;
+    width: 100%;
+}
+
+.slide{
+    height: 100%;
+    width: 100%;
+    color: black;
+    /* background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 20%; */
+}
+
+.slide img{
+    width: 100%;
+    max-height: 100vh;
+    height: inherit;
+    object-fit: cover;
+}
+
+
+.btn_left, .btn_right, .btn_inactive{
+    font-size: smaller;
+    cursor: pointer;
+    border: none;
+    width: 5vw;
+    height: 5vh;
+    background-color: var(--btnSlider);
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+.btn_left:hover, .btn_right:hover, .dot:hover{
+    background-color: white;
+    color: var(--btnSlider);
+}
+
+.btn_left{
+    grid-area: l;
+}
+
+.btn_right{
+    grid-area: r;
+}
+
+.car_container .slides_container{
+    white-space: nowrap;
+}
+
+/* Puntos de abajo */
+.dot_container{
+    grid-area: d;
+}
+
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    background-color: var(--btnSlider);
+    border: 1px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin-left: .1rem;
+    margin-right: .1rem;
+}
+
+.dot_active{
+    background-color: white;
+    transition: .5s;
+}
+ 
+.btn_active{
+    background-color: white;
+    transition: .5s;
+}
+
+
+.efecto1{
+    animation-name: efecto1;
+    animation-duration: .5s;
+}
+
+@keyframes efecto1{
+    from    {transform: skewY(45deg) skewX(-35deg);}
+    to      {transform: skewY(0deg) skewX(0deg);}
+}
+
+
+.efecto2{
+    animation-name: efecto2;
+    animation-duration: 2s;
+}
+
+@keyframes efecto2{
+    from    {transform: rotate(-420deg) scale(0);}
+    to      {transform: rotate(0deg) scale(1);}
+}
+
+
+.efecto3{
+    animation-name: efecto3;
+    animation-duration: 1.5s;
+}
+
+@keyframes efecto3{
+    from    {transform: skew(90deg);}
+    to      {transform: skew(0deg);}
+}
+
+progress{
+    appearance: none;
+}

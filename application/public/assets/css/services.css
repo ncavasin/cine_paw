@@ -1,0 +1,47 @@
+h2{
+    text-align: center;
+    margin-bottom: 0;
+}
+
+section{
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+}
+
+section h3 {
+    color: white;
+    font-size: larger;
+    padding: .5rem 0;
+}
+
+article{
+    margin: var(--margin_section) 0;
+    background-color: var(--azul);
+    border-radius: var(--border_value);
+}
+
+article:hover{
+    background-color: var(--celeste);
+    transition: .5s;
+}
+
+article img{
+    display: block;
+}
+
+@media (min-width: 800px){
+
+    section{
+        display: grid;
+        grid-template-columns: 45% 45%;
+        grid-template-rows: auto auto;
+        column-gap: 10%;
+    }
+
+    article{
+        margin: 1rem 0px;
+    }
+
+}

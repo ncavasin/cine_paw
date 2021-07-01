@@ -1,0 +1,106 @@
+.ul-fechas{
+    display: flex; 
+    flex-direction: column;
+}
+
+.ul-fechas > * {
+    margin: 0.5rem 0px
+}
+
+.ul-fechas li {
+    padding: 1rem
+}
+
+.ul-fechas li:hover {
+    background-color: var(--celeste);
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.ul-fechas li.open:hover {
+    background-color: inherit;
+    color: inherit;
+    cursor: inherit;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+li.open {
+    border: 1px solid var(--gris);
+    border-bottom: none;
+    margin-bottom: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+ul.open {
+    border: 1px solid var(--gris);
+    border-top: none;
+    margin-top: 0px;
+    padding: 0.5rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.open > * {
+    margin: 1.5px calc(0.5rem + 1.5px);
+    /* este calculo es por el border del selected para que no se muevan todos los item cuando se selecciona uno */
+}
+
+.closed {
+    display: none;
+}
+
+li.selected {
+    border: 1.5px solid var(--azul);
+    background-color: var(--celeste);
+    color: white;
+    border-radius: 10px;
+    margin: 0px 0.5rem;
+}
+
+.get-turns-button {
+    width: 25%; 
+    height: 3rem; 
+    align-self: center; 
+    border-radius: 10px
+}
+
+.turnos-disponibles {
+    display: flex; 
+}
+
+.especialista-turnos {
+    border: 1.5px solid var(--gris); 
+    margin: 1rem; padding: 1rem; 
+    border-radius: 10px; 
+    flex-grow: 1
+}
+
+.header-card {
+    border-bottom: 1px solid var(--gris)
+}
+
+/* ordenando los fieldset */
+
+#fieldset-inputs {
+    order: 1
+}
+
+#get-turns-button {
+    order: 2
+}
+
+#fieldset-cards {
+    order: 3
+}
+
+#fieldset-buttons {
+    order: 4;
+    flex-wrap: wrap
+}
