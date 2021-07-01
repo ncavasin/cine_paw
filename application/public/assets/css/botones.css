@@ -4,7 +4,7 @@
     border-radius: 10px;
     background-color: var(--primary);
     color: white;
-    border: 1px solid white;
+    border: 1px solid var(--background);
     min-width: 10rem;
     margin: 2rem;
     min-height: 2rem
@@ -17,7 +17,7 @@
 .main_button:not([disabled]):hover{
     transition: var(--transition_time);
     color: var(--primary);
-    background-color: white;
+    background-color: var(--background);
     border: 1px var(--primary) solid;
     padding: 0 .125rem 0 .125rem;
     cursor: pointer
