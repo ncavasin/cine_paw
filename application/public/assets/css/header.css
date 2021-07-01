@@ -39,6 +39,7 @@ body{
     line-height: 1.25; 
 }
 
+
 a{
     color: var(--text);
 }
@@ -48,7 +49,7 @@ header{
     top: 0;
     width: 100%;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 30% 70%;
     grid-template-rows: auto auto;
     grid-template-areas: 
                         "logo nav";
@@ -126,15 +127,14 @@ nav{
     align-items: center;
 }
 
-
-.menu_user li{
-    margin: 0 .25rem;
+.menu_user > li{
     margin: 0 1rem;
 }
 
 .user_opt{
     height: 100%;
     padding: 1rem;
+    text-align: center;
     border-radius: var(--border_value);
 }
 
@@ -150,10 +150,11 @@ nav{
     display: none;
 }
 
+
 .main_menu_cerrado{
+    grid-area: main;
     background-color: var(--primary);
     color: var(--text);
-    grid-area: mobi;
     display: flex;
     flex-flow: column;
     justify-self: center;
@@ -184,7 +185,7 @@ nav{
     background-color: white;
 	transition-duration: .75s;
 }
-/* main menu end */
+
 
 .main_menu_cerrado > li:nth-of-type(2) > a:hover{
     font-weight:  bolder;
@@ -192,12 +193,10 @@ nav{
 }
 
 .main_menu_cerrado > li:nth-of-type(2) > a:hover::after{
-    
     text-decoration: none;
     transition-duration: .75s;
 }
 
-/* despliega el submenu */
 .btn{
     background-color: var(--violeta);
     color: white;
@@ -209,82 +208,3 @@ nav{
     cursor: pointer;
     align-self: center;
 }
-
-
-@media (min-width: 555px) {
-
-    .hamburguesa,
-    .main_menu_cerrado,
-    .sub_menu_list,
-    .sub_menu_list_item,
-    .btn{
-        display: none;
-    }
-
-    .menu_user{
-        font-size: smaller;
-        justify-content: flex-end;
-    }
-
-    .telefono{
-        display: inherit;
-        text-align: center;
-    }
-
-    .user_opt,
-    .telefono{
-        text-decoration: none;
-        padding: .5rem;
-    }
-
-    nav{
-        display: grid;
-        grid-template-columns: 20% 70% 10%;
-        grid-template-areas: 
-                            "logo menu menu";
-    }
-
-    .logotipo{
-        justify-self: left;
-    }
-
-    .logotipo > a{
-        margin: 0 .5rem;
-    }
-
-    .main_menu{
-        grid-area: menu;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-    }  
-
-    .main_menu_opt > a{
-        display: inline-block;
-        padding: 1rem;
-        text-align: center;
-        border-radius: 10px;
-    }
-    
-    .main_menu_opt > a:hover{
-        background-color: white;
-        color: var(--primary);
-        transition: all .5s;
-        border-radius: 10px;
-    }
-    
-    .main_menu_abrir{
-        justify-self: stretch;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 2rem;
-    }
-
-    .sub_menu_head{
-        display: inline-block;
-    }
-
-}
-
-
