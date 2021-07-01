@@ -12,7 +12,7 @@
 }
 
 .ul-fechas li:hover {
-    background-color: var(--celeste);
+    background-color: var(--secondary);
     color: white;
     cursor: pointer;
     border-radius: 10px;
@@ -58,7 +58,7 @@ ul.open > * {
 
 li.selected {
     border: 1.5px solid var(--primary);
-    background-color: var(--celeste);
+    background-color: var(--secondary);
     color: white;
     border-radius: 10px;
     margin: 0px 0.5rem;
