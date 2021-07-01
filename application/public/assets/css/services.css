@@ -23,7 +23,7 @@ article{
 }
 
 article:hover{
-    background-color: var(--celeste);
+    background-color: var(--secondary);
     transition: .5s;
 }
 

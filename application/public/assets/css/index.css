@@ -45,7 +45,7 @@ ul .button{
     
 ul .button:hover{
     transition: var(--transition_time);
-    background-color: var(--celeste);
+    background-color: var(--secondary);
 }
 
 @media (min-width: 480px){
