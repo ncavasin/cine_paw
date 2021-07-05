@@ -132,12 +132,12 @@ x:root{
 
 .efecto4{
     animation-name: efecto4;
-    animation-duration: 2s;
+    animation-duration: .5s;
 }
 
 @keyframes efecto4{
-    from    {transform: skewY(45deg) skewX(-35deg);}
-    to      {transform: skewY(0deg) skewX(0deg);}
+    from    {transform: skewX(-10deg);}
+    to      {transform: skewX(0deg);}
 }
 
 

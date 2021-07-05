@@ -19,6 +19,7 @@
 
     --border_value: 15px;
     --transition_time: .25s;
+    --logo_transition: .5s;
     --min_width: 481px;
     
     --padding_section: 2rem;
@@ -60,14 +61,16 @@ header{
 .logotipo{
     grid-area: logo;
     cursor: pointer;
-    margin: .5rem 0;
     justify-self: left;
-    align-self: top;
+    align-self: flex-start;
+    margin-top: .5rem;
     text-align: center;
 } 
 
 .logotipo:hover{
+    margin-top: .3rem;
     box-shadow: var(--level2);
+    transition: all var(--logo_transition);
 }
 
 .logotipo > a{
@@ -79,7 +82,7 @@ header{
 
 .logotipo > a:hover{
     font-size: larger;
-    transition: all 0.5s;
+    transition: all var(--logo_transition);
 }
 
 nav{
