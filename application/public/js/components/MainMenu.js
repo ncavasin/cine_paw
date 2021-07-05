@@ -23,7 +23,7 @@ class MainMenu {
             { class: 'hamburguesa'}
         );
         
-        let ul = document.querySelector("nav ul");
+        let ul = document.getElementsByClassName("main_menu").item(0);
 
         // Add functionality
         button.addEventListener("click", (event) => {
@@ -44,7 +44,6 @@ class MainMenu {
             }
             else{
                 console.log('MAINMENU::MOBILE');
-                // undoAll();
             }
         });
 
