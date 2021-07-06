@@ -8,10 +8,13 @@ const CEL_MAX = 30;
 const MAIL_MAX = 50;
 const PWD_MIN = 7;
 const PWD_MAX = 255;
-const ESPECIALIDAD_NOM_MAX = 50;
-const ESPECIALIDAD_DESC_MAX = 500;
-const SERVICIOS_NOM_MAX = 50;
-const OS_NOM_MAX = 50;
+
+const DIR_MAX = 100;
+const PEL_MAX = 250;
+const DESC_MAX = 2500;
+const UBI_MAX = 3; // ej: entrada J24 -> fila J col 24.
+const TIPO_MAX = 20;
+
 
 class Constants{
 
@@ -39,22 +42,21 @@ class Constants{
         return PWD_MAX;
     }
 
-    public static function getEspNomMax(){
-        return ESPECIALIDAD_NOM_MAX;
+    public static function getDirMax(){
+        return DIR_MAX;
     }
 
-    public static function getEspDescMax(){
-        return ESPECIALIDAD_DESC_MAX;
+    public static function getPelMax(){
+        return PEL_MAX;
     }
 
-    public static function getServNomMax(){
-        return SERVICIOS_NOM_MAX;
-    }
-
-    public static function getOsNomMax(){
-        return OS_NOM_MAX;
+    public static function getTipoMax(){
+        return TIPO_MAX;
     }
     
+    public static function getDescMax(){
+        return DESC_MAX;
+    }
 
 }
 
