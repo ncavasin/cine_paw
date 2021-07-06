@@ -22,9 +22,44 @@ final class FirstMigrations extends AbstractMigration
     public function change(): void
     {
 
+        $tableComplejos = $this->table('complejos');
+        $tableComplejos->addColumn('nombre', 'string', [
+                'limit' => Constants::getNomApMax(),
+                'null' => false])
+            ->addColumn('dirección', 'string', ['limit' => Constants::getDirMax()])
+            ->create();
+
+
+        $tableSalas = $this->table('salas');
+        $tableSalas->addColumn('id_complejo', 'integer')
+            ->addColumn('numero', 'integer', ['null' => false])
+            ->addForeignKey('id_complejo', 'complejos', 'id')
+            ->create();
+
+            
+        $tablePeliculas = $this->table('peliculas');
+        $tablePeliculas->addColumn('titulo', 'string', [
+                'limit' => Constants::getTituloMax(), 
+                'null' => false])
+            ->addColumn('sinopsis', 'string', [
+                'limit' => Constants::getSinopsisMax(),
+                'null' => true])
+            ->addColumn('duracion', 'integer', ['null' => false])
+            ->addColumn('genero', 'string', [
+                'limit' => Constants::getNomApMax(),
+                'null' => false])
+            ->addColumn('fecha_estreno', 'date', ['null' => false])
+            ->addColumn('trailer', 'string', [
+                'limit' => Constants::getLinkMax(),
+                'null' => true])
+            ->addColumn('valoracion', 'integer', ['null' => true])
+            ->addColumn('activa', 'boolean', ['null' => false])
+            ->create();
+
+
         # Restriccion => no puede existir un mail asociado a dos cuentas diferentes
-        $tableUsuario = $this->table('usuarios');
-        $tableUsuario->addColumn('nombre', 'string', [
+        $tableUsuarios = $this->table('usuarios');
+        $tableUsuarios->addColumn('nombre', 'string', [
                 'limit' => Constants::getNomApMax(),
                 'null' => false ])
             ->addColumn('apellido', 'string', [
@@ -41,42 +76,16 @@ final class FirstMigrations extends AbstractMigration
             ->addColumn('pwd', 'string', [
                 'limit' => Constants::getPwdMax(),
                 'null' => false ])
-            // ->addcolumn('rol', 'string')
+            // ->addcolumn('rol', 'string'),
             ->addIndex(['mail'], [
                 'unique' => true,
                 'name' => 'idx_usuarios_mail'])
             ->create();
 
 
-        $tableComplejos = $this->table('complejos');
-        $tableComplejos->addColumn('nombre', 'string', [
-                'limit' => Constants::getNomApMax(),
-                'null' => false])
-            ->addColumn('dirección', 'string', ['limit' => Constants::getDirMax()])
-            ->create();
-
-
-        $tableSalas = $this->table('salas');
-        $tableSalas->addColumn('id_complejo', 'integer')
-            ->addColumn('numero', 'integer', ['null' => false])
-            ->addForeignKey('id_complejo', 'complejos', 'id')
-            ->create();
-        
-
-        $tablePeliculas = $this->table('peliculas');
-        $tablePeliculas->addColumn('titulo', 'string', [
-                'limit' => Constants::getPelMax(), 
-                'null' => false])
-            ->addColumn('descripcion', 'string', [
-                'limit' => Constants::getDescMax(),
-                'null' => true])
-            ->addColumn('duracion', 'integer', ['null' => false])
-            ->create();
-
-
         $tableTipoFunciones = $this->table('tipo_funciones');
         $tableTipoFunciones->addColumn('descripcion', 'string', [
-                'limit' => Constants::getTipoMax(),
+                'limit' => Constants::getTipoDescMax(),
                 'null' => false])
             ->addColumn('precio', 'float', ['null' => false])
             ->create();
@@ -102,36 +111,5 @@ final class FirstMigrations extends AbstractMigration
             ->addForeignKey('id_usuario', 'usuarios', 'id')
             ->addForeignKey('id_funcion', 'funciones', 'id')
             ->create();
-
-
-        // $tableDiasQueAtiende = $this->table('dias_que_atiende', ['id' => false, 'primary_key' => ['id', 'id_especialista']]);
-        // $tableDiasQueAtiende->addColumn('id', 'integer', ['identity' => true])
-        //     ->addColumn('nombre_dia', 'string')
-        //     ->addColumn('id_especialista', 'integer')
-        //     ->addForeignKey('id_especialista', 'especialistas', 'id')
-        //     ->create();
-
-        // # PK compuesta => id_especialidad id_especialista
-        // $tableIntermedia = $this->table('intermedia', ['id' => false, 'primary_key' => ['id_especialista', 'id_especialidad']]);
-        // $tableIntermedia->addColumn('id_especialidad', 'integer', [
-        //     'limit' => Constants::getEspNomMax(),
-        //     'null' => false
-        // ])
-        //     ->addColumn('id_especialista', 'integer', [
-        //         'limit' => Constants::getNomApMax(),
-        //         'null' => false
-        //     ])
-        //     # col local   | tbl externa  | col externa
-        //     ->addForeignKey('id_especialidad', 'especialidades', 'id')
-        //     # col local   | tbl externa  | col externa
-        //     ->addForeignKey('id_especialista', 'especialistas', 'id')
-        //     ->create();
-
-        // $tableObrasSociales = $this->table('obras_sociales');
-        // $tableObrasSociales->addColumn('nombre', 'string', [
-        //     'limit' => Constants::getOsNomMax(),
-        //     'null' => false
-        // ])
-        //     ->create();
     }
 }

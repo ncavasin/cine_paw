@@ -9,11 +9,12 @@ const MAIL_MAX = 50;
 const PWD_MIN = 7;
 const PWD_MAX = 255;
 
+const TITULO_MAX = 250;
+const SINOPSIS_MAX = 2500;
+const TIPO_DESC_MAX = 50;
+const UBI_MAX = 3;      // ej: entrada J24 -> fila J col 24.
+const LINK_MAX = 300;
 const DIR_MAX = 100;
-const PEL_MAX = 250;
-const DESC_MAX = 2500;
-const UBI_MAX = 3; // ej: entrada J24 -> fila J col 24.
-const TIPO_MAX = 20;
 
 
 class Constants{
@@ -46,16 +47,25 @@ class Constants{
         return DIR_MAX;
     }
 
-    public static function getPelMax(){
-        return PEL_MAX;
-    }
-
-    public static function getTipoMax(){
-        return TIPO_MAX;
+    public static function getTituloMax(){
+        return TITULO_MAX;
     }
     
-    public static function getDescMax(){
-        return DESC_MAX;
+    public static function getSinopsisMax(){
+        return SINOPSIS_MAX;
+    }
+
+    public static function getTipoDescMax(){
+        return TIPO_DESC_MAX;
+    }
+
+    public static function getUbiMax(){
+        return UBI_MAX;
+    }
+    
+
+    public static function getLinkMax(){
+        return LINK_MAX;
     }
 
 }
