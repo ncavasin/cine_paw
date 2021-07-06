@@ -5,7 +5,10 @@
     font-family: 'Roboto', sans-serif;
     
     --main_background: #121212;
-    --primary: #ff784e;
+    /* --primary: #ff784e; */
+    /* --primary: #1DB954; */
+    --primary: #4267B2;
+    /* --primary: #E50914; */
     --secondary: #57886cff;
     --text: white;
     --gris: #C4C4C4;
