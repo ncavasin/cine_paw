@@ -20,7 +20,7 @@
             <h2>REESTABLECER CONTRASEÑA</h2>
             <form action="#" method="POST" target="_self">
                 <fieldset>
-                    <label for="email">Email de la cuenta a recuperar</label>
+                    <label for="email">Correo Electrónico:</label>
                     <input type="email" id="email" name="email" placeholder="ejemplo@email.com" autofocus required tabindex="1" /><br>
                 </fieldset>
 
