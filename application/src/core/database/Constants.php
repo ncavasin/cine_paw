@@ -76,10 +76,7 @@ class Constants{
     public static function getLinkMax(){
         return LINK_MAX;
     }
-    
-    public static function getLocMax() {
-        return LOC_MAX;
-    }
+
 }
 
 ?>
