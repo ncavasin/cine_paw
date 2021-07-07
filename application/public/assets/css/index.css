@@ -6,14 +6,17 @@ h2{
 section{
     padding-top: 2rem;
     padding-bottom: 2rem;
-    font-weight: bolder;
     align-items: center;
     justify-items: center;
-    background-color: var(--gris);
     color: white;
     margin-top: 2rem;
     margin-bottom: 2rem;
     border-radius: var(--border_value);
+}
+
+.card {
+    background-color: var(--level1);
+    border: 1px solid var(--level2);
 }
 
 section > ul{

@@ -69,23 +69,7 @@ $router->post('/reset_password', 'PageController@resetPasswordProcess');
 $router->get('/register', 'PageController@register');
 $router->post('/register', 'UsuariosController@register');
 
-// $router->get('/coverages', 'PageController@coverages');
-// $router->post('/coverages', 'PageController@coveragesProcess');
-
-// $router->get('/newturn', 'PageController@turns');
-// $router->get('/especialidades', 'EspecialidadesController@getEspecialidades');
-// $router->get('/especialistas', 'EspecialistasController@getEspecialistas');
-// $router->get('/turnos_disponibles', 'TurnosController@getTurnosDisponibles');
-// $router->post('/newturn', 'TurnosController@nuevoTurno');
-// $router->get('/myturns', 'TurnosController@getTurnos');
-// $router->get('/waiting_list', 'TurnosController@getWaitingList');
-
-// $router->get('/servicios/audiologia', 'ServicesController@audiologia');
-// $router->get('/servicios/cardiologia', 'ServicesController@cardiologia');
-// $router->get('/servicios/densitometria', 'ServicesController@densitometria');
-// $router->get('/servicios/ecografia_doppler', 'ServicesController@ecografiaDoppler');
-
-# $router->get('/turns/', 'TurnsController@index');
+$router->get('/movie_info', 'MovieController@movieInfo');
 # Add all needed routes 
 
 ?>

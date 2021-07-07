@@ -1,0 +1,30 @@
+.butacas-container {
+    overflow-x: auto;
+}
+
+.butaca {
+    cursor: pointer;
+}
+
+rect {
+    stroke-width: .5;
+    fill: #7e7e7e;
+    stroke: white;
+}
+
+.selected {
+    fill: var(--success);
+}
+
+.not-available {
+    fill: var(--error);
+}
+
+.tickets-container h3 {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--level2);
+}
+
+@media (min-width: 600px) {
+    
+}

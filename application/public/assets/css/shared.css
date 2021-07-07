@@ -11,8 +11,8 @@ h2{
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: x-large;
-    font-weight: bolder;
     color: var(--primary);
+    text-align: center;
 }
 
 section > p{
