@@ -23,10 +23,11 @@ final class FirstMigrations extends AbstractMigration
     {
 
         $tableComplejos = $this->table('complejos');
-        $tableComplejos->addColumn('nombre', 'string', [
-                'limit' => Constants::getNomApMax(),
+        $tableComplejos->addColumn('direccion', 'string', ['limit' => Constants::getDirMax()])
+            ->addColumn('codigo_postal', 'integer', ['null' => false])
+            ->addColumn('localidad', 'string', [
+                'limit' => Constants::getLocMax(),
                 'null' => false])
-            ->addColumn('dirección', 'string', ['limit' => Constants::getDirMax()])
             ->create();
 
 
