@@ -45,11 +45,11 @@ class UsuariosController extends Controller{
         $values = [
             "nombre" => $_POST['nombre'],
             "apellido" => $_POST['apellido'],
+            "dni" => $_POST['dni'],
             "fnac" => $_POST['fnac'],
             "celular" => $_POST['celular'],
             "mail" => $_POST['mail'],
-            "pwd" => $_POST['pwd'],
-            "id_obra_social" => null, // TODO
+            "pwd" => $_POST['pwd']
         ];
 
         if (strtolower($values['mail']) != strtolower($_POST['conf_mail'])) {

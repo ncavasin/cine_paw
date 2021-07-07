@@ -17,6 +17,7 @@ const UBI_MAX = 3;      // ej: entrada J24 -> fila J col 24.
 const LINK_MAX = 300;
 const DIR_MAX = 100;
 const LOC_MAX = 100;
+const DNI_LEN = 8;
 
 
 class Constants{
@@ -75,6 +76,10 @@ class Constants{
 
     public static function getLinkMax(){
         return LINK_MAX;
+    }
+
+    public static function getDniMax(){
+        return DIR_MAX;
     }
 
 }

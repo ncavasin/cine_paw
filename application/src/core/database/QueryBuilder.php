@@ -60,7 +60,7 @@ class QueryBuilder {
     private function dispatcher($table, $keyword){
         if($table == 'usuarios'){
             # IMPORTANTE sin la especificacion de las columnas antes, no anda (porque sino espera que le pases el id tambien y es autoincremental)
-            return '(nombre, apellido, fnac, celular, mail, pwd, id_obra_social, rol) '. $keyword .' (:nombre, :apellido, :fnac, :celular, :mail, :pwd, :id_obra_social, :rol)';
+            return '(nombre, apellido, dni, fnac, celular, mail, pwd) '. $keyword .' (:nombre, :apellido, :dni, :fnac, :celular, :mail, :pwd)';
         }
         else if($table == 'turnos'){
             return '(id_usuario, hora, id_especialista, minuto, fecha, orden_medica, nombre_orden_medica) ' 

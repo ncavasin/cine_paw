@@ -2,10 +2,8 @@
 
 namespace Paw\app\models;
 
-use Dotenv\Util\Str;
 use Exception;
 use Paw\core\Model;
-use Paw\core\exceptions\InvalidFormatException;
 use Paw\core\database\Constants;
 
 class Usuario extends Model{
@@ -17,12 +15,11 @@ class Usuario extends Model{
     public $fields = [
         "nombre"            => ["value" => null, "error" => null],
         "apellido"          => ["value" => null, "error" => null],
+        "dni"               => ["value" => null, "error" => null],
         "fnac"              => ["value" => null, "error" => null],
         "celular"           => ["value" => null, "error" => null],
         "mail"              => ["value" => null, "error" => null],
         "pwd"               => ["value" => null, "error" => null], 
-        "id_obra_social"    => ["value" => 1, "error" => null],  # Only one cobertura per user
-        "rol"               => ["value" => 'user', "error" => null]
     ];
 
     public function setNombre(string $nombre){
@@ -40,8 +37,7 @@ class Usuario extends Model{
         $this->fields['apellido']['value'] = $apellido;
     }
 
-    private function parseDate($field)
-    {
+    private function parseDate($field){
         return explode('-', $field);
     }
 
@@ -57,6 +53,30 @@ class Usuario extends Model{
         }
         # Copy paste logic from Page Controllers
         $this->fields['fnac']['value'] = $fnac;
+    }
+
+    private function validDni(&$dni){
+        # Remove dots if any
+        $dni = str_replace(".", "", $dni);
+        
+        if(strlen($dni) > Constants::getDniMax()) return false;
+
+        # Convert string to integer
+        $dni = intval($dni);
+
+        return true;
+    }
+
+    public function setDni($dni){
+        #echo '<pre>';
+        #var_dump($dni);
+        
+        if(! $this->validDni($dni)){
+            $this->fields['dni']['error'] = 'DNI de Usuario inválido.';
+        }
+        
+        #var_dump($dni);
+        $this->fields['dni']['value'] = $dni;
     }
 
     private function validarCelular(){
@@ -96,13 +116,10 @@ class Usuario extends Model{
         return true;
     }
 
-    public function setId_obra_social($id_obra_social){
-        $this->fields['id_obra_social']['value'] = 1;
-    }
 
     public function set(array $values){
         foreach(array_keys($this->fields) as $key){
-            if((! isset($values[$key]) && $key != 'id_obra_social' && $key != 'rol')){
+            if((! isset($values[$key]))){
                 $this->fields[$key]['error'] = "El campo no puede estar vacío ({$key})"; # TODO si no encuentra la variable deberia tirar un error 
             }
             # Armo el nombre de la funcion a ejecutar para el setter correspondiente
@@ -112,10 +129,6 @@ class Usuario extends Model{
         return $this->fields;
     }
 
-    public function setRol($rol) {
-        $this->fields['rol']['value'] = 'user';
-        return true;
-    }
 
     public function login(array $values){
         $isValid = true;
@@ -141,7 +154,7 @@ class Usuario extends Model{
         return [$isValid, $user];
     }
 
-    public function save () {
+    public function save() {
         try{
             $params = [];
             foreach( $this->fields as $key => $field) $params[$key] = $field['value'];
