@@ -5,16 +5,16 @@
     font-family: 'Roboto', sans-serif;
     
     --main_background: #121212;
+    --level1: #212121;
+    --level2: #313131;
+    --paper: #424242;
+    --primary: #4267B2;
     /* --primary: #ff784e; */
     /* --primary: #1DB954; */
-    --primary: #4267B2;
     /* --primary: #E50914; */
     --secondary: #57886cff;
     --text: white;
     --gris: #C4C4C4;
-    --level1: #212121;
-    --level2: #313131;
-    --paper: #424242;
     
     --success: #357a38; 
     --error: #f44336;

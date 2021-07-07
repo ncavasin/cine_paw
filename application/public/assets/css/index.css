@@ -9,7 +9,7 @@ section{
     font-weight: bolder;
     align-items: center;
     justify-items: center;
-    background-color: var(--gris);
+    background-color: var(--level1);
     color: white;
     margin-top: 2rem;
     margin-bottom: 2rem;

@@ -1,0 +1,23 @@
+.butacas-container {
+    background-color: transparent;
+    overflow-x: auto;
+}
+
+.butaca {
+    cursor: pointer;
+}
+
+rect {
+    stroke-width: .5;
+    fill: #7e7e7e;
+    stroke: white;
+}
+
+.selected {
+    fill: var(--success);
+}
+
+.not-available {
+    fill: var(--error);
+}
+
