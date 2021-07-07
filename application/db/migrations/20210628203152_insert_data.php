@@ -21,7 +21,6 @@ final class InsertData extends AbstractMigration
 
         $usuarios = [
             [
-                'id' => 1,
                 'nombre' => 'Usuario',
                 'apellido' => 'DePrueba1',
                 'dni' => 12345678,
@@ -30,8 +29,7 @@ final class InsertData extends AbstractMigration
                 'mail' => 'usuario1@test.com',
                 'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe', /* password sin hash: 123456 */
             ],
-            [
-                'id' => 2,
+            [   
                 'nombre' => 'Usuario',
                 'apellido' => 'DePrueba2',
                 'dni' => 12345678,
@@ -41,7 +39,6 @@ final class InsertData extends AbstractMigration
                 'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe', /* password sin hash: 123456 */
             ],
             [
-                'id' => 3,
                 'nombre' => 'Admin',
                 'apellido' => 'Root',
                 'dni' => 12345678,
