@@ -25,8 +25,8 @@
                 <img src="/assets/img/carousel2.jpg" class="slide efecto4"/>
             </figure>
         </section>
+        <h2>Cartelera</h2>
         <section class='transparent'>
-            <h2>Cartelera</h2>
             <ul class='peliculas'>
                 <li>
                     <img src='/assets/img/portada.jpg' class='portada'/>

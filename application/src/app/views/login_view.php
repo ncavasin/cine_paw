@@ -14,8 +14,8 @@
         ?>
         <main>
             <?php require 'parts/notification_view.php'; ?>
+            <h2>INICIAR SESIÓN</h2>
             <section>
-                <h2>INICIAR SESIÓN</h2>
                 <?php if ($procesado) : ?>
                     <?php if ($is_valid) : ?>
                         <p style='color: green'>Logeado con éxito</p>

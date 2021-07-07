@@ -11,9 +11,9 @@
 <body>
     <?php require 'parts/header_view.php';    ?>
     <main>
+        <h2>REGISTRARSE</h2>
         <section>
             <?php require 'parts/notification_view.php'; ?>
-            <h2>REGISTRARSE</h2>
 
             <!--<img src="/assets/img/Imagen_Registrar.jpg" alt="Imagen para Registrarse" width="300">-->
 
