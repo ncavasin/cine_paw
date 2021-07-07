@@ -18,240 +18,207 @@ final class InsertData extends AbstractMigration
      */
     public function up(): void
     {
-        // $especialistas = [
+
+        $usuarios = [
+            [
+                'id' => 1,
+                'nombre' => 'Usuario',
+                'apellido' => 'DePrueba1',
+                'dni' => 12345678,
+                'fnac' => '1997-03-26',
+                'celular' => '+5492323111111',
+                'mail' => 'usuario1@test.com',
+                'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe', /* password sin hash: 123456 */
+            ],
+            [
+                'id' => 2,
+                'nombre' => 'Usuario',
+                'apellido' => 'DePrueba2',
+                'dni' => 12345678,
+                'fnac' => '1995-02-02',
+                'celular' => '+5492323222222',
+                'mail' => 'usuario2@test.com',
+                'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe', /* password sin hash: 123456 */
+            ],
+            [
+                'id' => 3,
+                'nombre' => 'Admin',
+                'apellido' => 'Root',
+                'dni' => 12345678,
+                'fnac' => '1995-02-02',
+                'celular' => '+5491133333333',
+                'mail' => 'soyadmin@test.com',
+                'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe', /* password sin hash: 123456 */
+            ],
+        ];
+
+        $complejos = [
+            [
+                'id' => 1,
+                'localidad' => 'Lujan',
+                'direccion' => 'Roberto Payro 198',
+                'codigo_postal' => 6700
+            ],
+            [
+                'id' => 2,
+                'localidad' => 'CABA',
+                'direccion' => 'Vicente Lopez 2050',
+                'codigo_postal' => 1113
+            ],
+            [
+                'id' => 3,
+                'localidad' => 'Pilar',
+                'direccion' => 'Autopista Panamericana Km. 50',
+                'codigo_postal' => 1629
+            ],
+            [
+                'id' => 4,
+                'localidad' => 'Avellaneda',
+                'direccion' => 'Au Dr. Ricardo Balbin',
+                'codigo_postal' => 1872
+            ],
+        ];
+
+        $salas = [
+            [
+                'id' => 1,
+                'id_complejo' => 1,
+                'numero' => 1
+            ],
+            [
+                'id' => 2,
+                'id_complejo' => 1,
+                'numero' => 2
+            ],
+            [
+                'id' => 3,
+                'id_complejo' => 2,
+                'numero' => 1
+            ],
+            [
+                'id' => 4,
+                'id_complejo' => 2,
+                'numero' => 2
+            ],
+            [
+                'id' => 5,
+                'id_complejo' => 2,
+                'numero' => 3
+            ],
+            [
+                'id' => 6,
+                'id_complejo' => 2,
+                'numero' => 4
+            ],
+            [
+                'id' => 7,
+                'id_complejo' => 3,
+                'numero' => 8
+            ],
+            [
+                'id' => 8,
+                'id_complejo' => 3,
+                'numero' => 1
+            ],
+            [
+                'id' => 9,
+                'id_complejo' => 3,
+                'numero' => 2
+            ],
+            [
+                'id' => 10,
+                'id_complejo' => 1,
+                'numero' => 3
+            ],
+            [
+                'id' => 11,
+                'id_complejo' => 4,
+                'numero' => 1
+            ],
+            [
+                'id' => 12,
+                'id_complejo' => 4,
+                'numero' => 2
+            ],
+        ];
+
+        $generos = [
+            [
+                'id' => 1,
+                'nombre' => 'accion'
+            ],
+            [
+                'id' => 2,
+                'nombre' => 'deportes'
+            ],
+            [
+                'id' => 3,
+                'nombre' => 'drama'
+            ],
+            [
+                'id' => 4,
+                'nombre' => 'suspenso'
+            ],
+        ];
+
+        // $peliculas = [
         //     [
         //         'id' => 1,
-        //         'nombre' => 'Especialista',
-        //         'apellido' => 'DePrueba1',
-        //         'matricula' => 'matricula1',
-        //         'horaini' => 9,
-        //         'horafin' => 12,
-        //         'minutoini' => 0,
-        //         'minutofin' => 30,
-        //         'duracion_turno' => 30,
+        //         'titulo' => 'Titanic',
+        //         'sinopsis' => 'Sinopsis de la pelicula',
+        //         'duracion' => 120,
+        //         'id_genero' => 3,
+        //         'fecha_estreno' => '01/07/1960',
+        //         'trailer' => 'https://github.com/ncavasin/cine_paw',
+        //         'valoracion' => 8.5,
+        //         'activa' => false
+        //     ],
+        //     [
+        //         'id' => 1,
+        //         'titulo' => 'Iron Man 3',
+        //         'sinopsis' => 'Sinopsis de Iron Man 3',
+        //         'duracion' => 160,
+        //         'id_genero' => 1,
+        //         'fecha_estreno' => '01/07/2015',
+        //         'trailer' => 'https://github.com/ncavasin/cine_paw',
+        //         'valoracion' => 7.0,
+        //         'activa' => false
         //     ],
         //     [
         //         'id' => 2,
-        //         'nombre' => 'Especialista',
-        //         'apellido' => 'DePrueba2',
-        //         'matricula' => 'matricula2',
-        //         'horaini' => 9,
-        //         'horafin' => 12,
-        //         'minutoini' => 0,
-        //         'minutofin' => 40,
-        //         'duracion_turno' => 20,
+        //         'titulo' => 'Rocky I',
+        //         'sinopsis' => 'Sinopsis de Rocky I',
+        //         'duracion' => 122,
+        //         'id_genero' => 2,
+        //         'fecha_estreno' => '01/07/2021',
+        //         'trailer' => 'https://github.com/ncavasin/cine_paw',
+        //         'valoracion' => 8.1,
+        //         'activa' => false
         //     ],
         //     [
         //         'id' => 3,
-        //         'nombre' => 'Especialista',
-        //         'apellido' => 'DePrueba3',
-        //         'matricula' => 'matricula3',
-        //         'horaini' => 10,
-        //         'horafin' => 15,
-        //         'minutoini' => 30,
-        //         'minutofin' => 30,
-        //         'duracion_turno' => 15,
+        //         'titulo' => 'Black Widow',
+        //         'sinopsis' => 'Sinopsis de la pelicula',
+        //         'duracion' => 134,
+        //         'id_genero' => 1,
+        //         'fecha_estreno' => '01/07/2021',
+        //         'trailer' => 'https://github.com/ncavasin/cine_paw',
+        //         'activa' => true
         //     ],
         //     [
         //         'id' => 4,
-        //         'nombre' => 'Especialista',
-        //         'apellido' => 'DePrueba4',
-        //         'matricula' => 'matricula4',
-        //         'horaini' => 7,
-        //         'horafin' => 12,
-        //         'minutoini' => 10,
-        //         'minutofin' => 10,
-        //         'duracion_turno' => 25,
-        //     ],
+        //         'titulo' => 'Titulo de la pelicula',
+        //         'sinopsis' => 'Sinopsis de la pelicula',
+        //         'duracion' => 120,
+        //         'id_genero' => 'accion',
+        //         'fecha_estreno' => '01/07/2021',
+        //         'trailer' => 'https://github.com/ncavasin/cine_paw',
+        //         'valoracion' => 0.3,
+        //         'activa' => true
+        //     ]
         // ];
-        // $diasQueAtiende = [
-        //     [
-        //         'id' => 1,
-        //         'id_especialista' => 1,
-        //         'nombre_dia' => 'Lunes'
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'id_especialista' => 1,
-        //         'nombre_dia' => 'Martes'
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'id_especialista' => 1,
-        //         'nombre_dia' => 'Jueves'
-        //     ],
-        //     [
-        //         'id' => 1,
-        //         'id_especialista' => 2,
-        //         'nombre_dia' => 'Lunes'
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'id_especialista' => 2,
-        //         'nombre_dia' => 'Miercoles'
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'id_especialista' => 2,
-        //         'nombre_dia' => 'Viernes'
-        //     ],
-        //     [
-        //         'id' => 1,
-        //         'id_especialista' => 3,
-        //         'nombre_dia' => 'Martes'
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'id_especialista' => 3,
-        //         'nombre_dia' => 'Miercoles'
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'id_especialista' => 3,
-        //         'nombre_dia' => 'Viernes'
-        //     ],
-        //     [
-        //         'id' => 1,
-        //         'id_especialista' => 4,
-        //         'nombre_dia' => 'Lunes'
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'id_especialista' => 4,
-        //         'nombre_dia' => 'Jueves'
-        //     ],
-        // ];
-        // $especialidades = [
-        //     [
-        //         'id' => 1,
-        //         'nombre' => 'Alergia',
-        //         'descripcion' => 'descripcion de la especialidad'
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'nombre' => 'Cirugía plastica',
-        //         'descripcion' => 'descripcion de la especialidad'
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'nombre' => 'Diabetología',
-        //         'descripcion' => 'descripcion de la especialidad'
-        //     ],
-        //     [
-        //         'id' => 4,
-        //         'nombre' => 'Neonatología',
-        //         'descripcion' => 'descripcion de la especialidad'
-        //     ],
-        //     [
-        //         'id' => 5,
-        //         'nombre' => 'Oncología',
-        //         'descripcion' => 'descripcion de la especialidad'
-        //     ],
-        //     [
-        //         'id' => 6,
-        //         'nombre' => 'Pediratría',
-        //         'descripcion' => 'descripcion de la especialidad'
-        //     ],
-        //     [
-        //         'id' => 7,
-        //         'nombre' => 'Terapia intensiva',
-        //         'descripcion' => 'descripcion de la especialidad'
-        //     ],
-        // ];
-        // $intermedia = [
-        //     [
-        //         'id_especialidad' => 1,
-        //         'id_especialista' => 1,
-        //     ],
-        //     [
-        //         'id_especialidad' => 3,
-        //         'id_especialista' => 1,
-        //     ],
-        //     [
-        //         'id_especialidad' => 4,
-        //         'id_especialista' => 1,
-        //     ],
-        //     [
-        //         'id_especialidad' => 1,
-        //         'id_especialista' => 2,
-        //     ],
-        //     [
-        //         'id_especialidad' => 3,
-        //         'id_especialista' => 2,
-        //     ],
-        //     [
-        //         'id_especialidad' => 6,
-        //         'id_especialista' => 2,
-        //     ],
-        //     [
-        //         'id_especialidad' => 7,
-        //         'id_especialista' => 2,
-        //     ],
-        //     [
-        //         'id_especialidad' => 2,
-        //         'id_especialista' => 3,
-        //     ],
-        //     [
-        //         'id_especialidad' => 3,
-        //         'id_especialista' => 3,
-        //     ],
-        //     [
-        //         'id_especialidad' => 5,
-        //         'id_especialista' => 3,
-        //     ],
-        //     [
-        //         'id_especialidad' => 1,
-        //         'id_especialista' => 4,
-        //     ],
-        //     [
-        //         'id_especialidad' => 3,
-        //         'id_especialista' => 4,
-        //     ],
-        //     [
-        //         'id_especialidad' => 5,
-        //         'id_especialista' => 4,
-        //     ],
-        //     [
-        //         'id_especialidad' => 6,
-        //         'id_especialista' => 4,
-        //     ],
-        // ];
-        // $obras_sociales = [['id' => 1, 'nombre' => 'Medical Test']];
-        // $usuarios = [
-        //     [
-        //         'id' => 1,
-        //         'nombre' => 'Usuario',
-        //         'apellido' => 'DePrueba1',
-        //         'fnac' => '1995-01-01',
-        //         'celular' => '+5492323111111',
-        //         'mail' => 'usuario1@test.com',
-        //         'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe',
-        //         'id_obra_social' => 1,
-        //         'rol' => 'user'
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'nombre' => 'Usuario',
-        //         'apellido' => 'DePrueba2',
-        //         'fnac' => '1995-02-02',
-        //         'celular' => '+5492323222222',
-        //         'mail' => 'usuario2@test.com',
-        //         'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe', /* password sin hash: 123456 */
-        //         'id_obra_social' => 1,
-        //         'rol' => 'user'
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'nombre' => 'Especialista',
-        //         'apellido' => 'DePrueba1',
-        //         'fnac' => '1995-02-02',
-        //         'celular' => '+5491133333333',
-        //         'mail' => 'especialista1@test.com',
-        //         'pwd' => '$2y$10$.8Cr0.9kTWTEOkjE/59Ghep2LvkosK5MKXkpRkj904f01hcAYWaTe',
-        //         'id_obra_social' => 1,
-        //         'rol' => 'medic'
-        //     ],
-        // ];
+
+        
         // $turnos = [
         //     [
         //         'id' => 1,
@@ -295,10 +262,10 @@ final class InsertData extends AbstractMigration
         //     ],
         // ];
 
-        // $this->table('especialistas')->insert($especialistas)->save();
-        // $this->table('especialidades')->insert($especialidades)->save();
-        // $this->table('intermedia')->insert($intermedia)->save();
-        // $this->table('obras_sociales')->insert($obras_sociales)->save();
+        $this->table('usuarios')->insert($usuarios)->save();
+        $this->table('complejos')->insert($complejos)->save();
+        $this->table('salas')->insert($salas)->save();
+        $this->table('generos')->insert($generos)->save();
         // $this->table('usuarios')->insert($usuarios)->save();
         // $this->table('dias_que_atiende')->insert($diasQueAtiende)->save();
         // $this->table('turnos')->insert($turnos)->save();
