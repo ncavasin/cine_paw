@@ -1,5 +1,4 @@
 .butacas-container {
-    background-color: transparent;
     overflow-x: auto;
 }
 
@@ -21,3 +20,11 @@ rect {
     fill: var(--error);
 }
 
+.tickets-container h3 {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--level2);
+}
+
+@media (min-width: 600px) {
+    
+}

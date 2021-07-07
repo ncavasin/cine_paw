@@ -14,13 +14,18 @@
     <?php
     require 'parts/header_view.php';
     ?>
-
     <main>
-        <section class='butacas-container'>
-            <?php include("resources/butacas.svg"); ?>
-        </section>
-        <section>
-            
+        <h2>Selección de butacas</h2>
+        <section class='content'>
+            <section class='cron-container'>
+                <h3>Tiempo restante</h3>
+            </section>
+            <section class='butacas-container'>
+                <?php include("resources/butacas.svg"); ?>
+            </section>
+            <section class='tickets-container card'>
+                <h3>Resumen de compra</h3>
+            </section>
         </section>
     </main>
     <?php
