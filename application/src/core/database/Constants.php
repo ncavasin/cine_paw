@@ -19,6 +19,7 @@ const DIR_MAX = 100;
 const LOC_MAX = 100;
 const DNI_LEN = 8;
 const IMDB_MAX = 20;
+const URL_MAX = 200;
 
 
 class Constants{
@@ -85,6 +86,10 @@ class Constants{
 
     public static function getImdbMax(){
         return IMDB_MAX;
+    }
+
+    public static function getUrlMax(){
+        return URL_MAX;
     }
 
 }

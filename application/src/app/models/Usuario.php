@@ -129,6 +129,22 @@ class Usuario extends Model{
         return $this->fields;
     }
 
+    public function get($values) {
+        $result = $this->queryBuilder->select($this->table, $values);
+        return count($result) == 0;
+    }
+
+    public function save() {
+        try{
+            $params = [];
+            foreach( $this->fields as $key => $field) $params[$key] = $field['value'];
+            return $this->queryBuilder->insert($this->table, $params);
+        } catch(Exception $e){
+            echo '<pre>';
+            echo var_dump($e);
+            return false;
+        }
+    }
 
     public function login(array $values){
         $isValid = true;
@@ -152,23 +168,7 @@ class Usuario extends Model{
         # Sigo si coinciden
         $user['pwd'] = null;
         return [$isValid, $user];
-    }
+    }    
 
-    public function save() {
-        try{
-            $params = [];
-            foreach( $this->fields as $key => $field) $params[$key] = $field['value'];
-            return $this->queryBuilder->insert($this->table, $params);
-        } catch(Exception $e){
-            echo '<pre>';
-            echo var_dump($e);
-            return false;
-        }
-    }
-
-    public function get($values) {
-        $result = $this->queryBuilder->select($this->table, $values);
-        return count($result) == 0;
-    }
 }
 
