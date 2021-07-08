@@ -10,6 +10,7 @@
     <link rel="stylesheet" type='text/css' href="assets/css/index.css" />
     <link rel="stylesheet" type='text/css' href="assets/css/botones.css" />
     <script src="/js/components/Carrousel.js"></script>
+    <script src="/js/components/MovieList.js"></script>
 </head>
 
 <body>
