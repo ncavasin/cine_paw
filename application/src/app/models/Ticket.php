@@ -22,7 +22,7 @@ class Ticket extends Model{
         return true;
     }
 
-    public function setIdUsuario($usuario){
+    public function setId_usuario($usuario){
         if (! $this->validIdUsuario($usuario)){
             $this->fields['id_usuario']['error'] = 'Id del usuario es inválido.';
         }
@@ -34,7 +34,7 @@ class Ticket extends Model{
         return true;
     }
 
-    public function setIdFuncion($idFuncion){
+    public function setId_funcion($idFuncion){
         if (! $this->validIdFuncion($idFuncion)){
             $this->fields['id_funcion']['error'] = 'Id de Función es inválida.';
         }
@@ -58,12 +58,12 @@ class Ticket extends Model{
         return true;
     }
 
-    public function setPaymentId($idPayment){
+    public function setPayment_id($idPayment){
         if (! $this->validPaymentId($idPayment)){
             $this->fields['payment_id']['error'] = 'Id de Payment inválida.';
         }
         
-        $this->fields['payment_id']['value'] = $idPayment;
+        $this->fields['payment_id']['value'] = 10;//$idPayment;
     }
 
     public function set(array $values){
@@ -73,6 +73,8 @@ class Ticket extends Model{
             }
             # Armo el nombre de la funcion a ejecutar para el setter correspondiente
             $method = 'set' . ucfirst($key);
+            echo '<pre>';
+            var_dump($method);
             $this->$method($values[$key]);
         }
         return $this->fields;
