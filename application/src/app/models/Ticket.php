@@ -71,10 +71,11 @@ class Ticket extends Model{
 
     public function set(array $values){
         foreach(array_keys($this->fields) as $key){
+            
             if((! isset($values[$key]))){
                 $this->fields[$key]['error'] = "El campo no puede estar vacío ({$key})";
             }
-            # Armo el nombre de la funcion a ejecutar para el setter correspondiente
+            
             $method = 'set' . ucfirst($key);
             $this->$method($values[$key]);
         }
@@ -94,14 +95,22 @@ class Ticket extends Model{
         return $valid;
     }
 
-    public function save() {
+    public function save($tickets) {
         try{
-            $params = [];
-            foreach( $this->fields as $key => $field){
-                $params[$key] = $field['value'];
-                var_dump($params);
+            foreach($tickets as $tKey => $tValue){
+                
+                $params = [];
+                
+                foreach( $this->fields as $key => $field){
+                    $params[$key] = $field['value'];
+                    
+                    var_dump($params);
+                }
             }
+
+            
             return $this->queryBuilder->insert($this->table, $params);
+
         } catch(Exception $e){
             echo '<pre>';
             echo var_dump($e);

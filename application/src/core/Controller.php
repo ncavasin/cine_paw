@@ -37,10 +37,10 @@ class Controller {
                 'href' => '/now_playing',
                 'name' => 'Cartelera'
             ],
-            [
-                'href' => '/search',
-                'name' => 'Buscar'
-            ],
+            // [
+            //     'href' => '/accout',
+            //     'name' => 'Mi cuenta'
+            // ],
             [
                 'href' => '/coming_soon',
                 'name' => 'Próximamente'
