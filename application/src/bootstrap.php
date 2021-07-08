@@ -61,7 +61,7 @@ session_start();
 $router->get('/', 'PageController@index');
 
 $router->get('/login', 'PageController@login');
-$router->get('/logout', 'PageController@logout');
+$router->get('/logout', 'UsuariosController@logout');
 $router->post('/login', 'UsuariosController@loginProcess');
 
 $router->get('/reset_password', 'PageController@resetPassword');

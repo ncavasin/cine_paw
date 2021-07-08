@@ -10,8 +10,11 @@ class UsuariosController extends Controller{
     public ?string $modelName = Usuario::class;
     
     public function logout() {
-        if (isset($_GET['session'])) $this->session->destroy();
-        require $this->viewsDir . 'index_view.php';
+
+        if (isset($_SESSION)) 
+            session_destroy();
+
+        header('Location: /');
     }
 
     public function loginProcess() {

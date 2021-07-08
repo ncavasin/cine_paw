@@ -65,7 +65,7 @@ class Controller {
         if($this->logged){
             $this->userOptions = [
                 [
-                    'href' => '/my_account',
+                    'href' => '/account',
                     'name' => 'Mi cuenta',
                 ],
                 [
