@@ -15,7 +15,7 @@
     <script src="/js/components/paw.js"></script>
     <script src="/js/app.js"></script>
 
-    <title><?= $titulo ?? "Dental Medical Group" ?></title> 
+    <title><?= $titulo ?? "Cine PAW" ?></title> 
 
 
 
