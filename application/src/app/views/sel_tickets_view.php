@@ -30,17 +30,24 @@
                     <tr>
                         <td>General</td>
                         <td>$700</td>
-                        <td>0</td>
+                        <td class='cant'>0</td>
                         <td>$0</td>
                     </tr>
                     <tr>
                         <td>Niño</td>
                         <td>$300</td>
-                        <td>0</td>
+                        <td class='cant'>0</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total:</td>
                         <td>$0</td>
                     </tr>
                 </tbody>
             </table>
+
         </section>
     </main>
     <?php
