@@ -114,6 +114,9 @@ final class FirstMigrations extends AbstractMigration
             ->addColumn('id_pelicula', 'integer', ['null' => false])
             ->addColumn('id_tipo_funcion', 'integer', ['null' => false])
             ->addColumn('horario', 'time', ['null' => false])
+            ->addColumn('idioma', 'string', [
+                'limit' => Constants::getIdiMax(),
+                'null' => false])
             ->addForeignKey('id_sala', 'salas', 'id')
             ->addForeignKey('id_pelicula', 'peliculas', 'id')
             ->addForeignKey('id_tipo_funcion', 'funciones', 'id')
