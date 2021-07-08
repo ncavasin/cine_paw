@@ -57,33 +57,41 @@ class TicketController extends Controller{
         require $this->viewsDir . 'sel_tickets_view.php';
     }
 
+    private function sanitize($values){
+
+        foreach($values as $v) {
+            $values[$v] = htmlspecialchars($v);
+            if(gettype($v) == 'string')
+                $values[$v] = strtoupper($v);
+        }
+
+    }
+
     public function newTicket(){
         global $log;
 
-
         $isValid = true;
-        $notification_text = 'Entrada reservada con éxito!';
+        $notification_text = 'Entrada reservada con éxito!';        
+        
         # setear los campos  -> devuelve bool
         $values = [
             "id_usuario" => $_POST['id_usuario'],
             "id_funcion" => $_POST['id_funcion'],
-            "ubicacion" => $_POST['ubicacion'],
+            "ubicacion" => strtoupper($_POST['ubicacion']),
             "payment_id" => $_POST['payment_id']
         ];
-        
-        var_dump("newTicket endpoint hit", $values);
+
+        // $values = $this->sanitize($values);
+
+        // var_dump("SANITIZED newTicket endpoint hit", $values);
         
         if ($isValid) {
 
-            # Get model data
+            # Me traigo todas las entradas que pertenecen a la funcion de la nueva entrada
             $isValid = $this->model->get($values);
 
-
-        if ($values['pwd'] != $_POST['conf_pwd']) {
-            $isValid = false;
-            $notification_text = 'Las contraseñas no coinciden';
-        }
-
+            var_dump("IS VALID?",$isValid);
+            
             # Set model data with the posted content
             $result = $this->model->set($values);
 
@@ -94,8 +102,7 @@ class TicketController extends Controller{
             
             if ($isValid) 
                 $isValid = $this->model->save();
-
-            if (!$isValid) {
+            else{
                 $notification_text = 'Error al intentar reservar la entrada, revise los logs para mas información.';
                 $log->debug('Error al reservar la entrada', [$result, $isValid]);
             }

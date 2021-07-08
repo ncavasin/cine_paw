@@ -63,7 +63,7 @@ class Ticket extends Model{
             $this->fields['payment_id']['error'] = 'Id de Payment inválida.';
         }
         
-        $this->fields['payment_id']['value'] = 10; //$idPayment;
+        $this->fields['payment_id']['value'] = $idPayment;
     }
 
     public function set(array $values){
@@ -73,16 +73,22 @@ class Ticket extends Model{
             }
             # Armo el nombre de la funcion a ejecutar para el setter correspondiente
             $method = 'set' . ucfirst($key);
-            echo '<pre>';
-            var_dump($method);
             $this->$method($values[$key]);
         }
         return $this->fields;
     }
 
     public function get($values) {
-        $result = $this->queryBuilder->select($this->table, $values);
-        return count($result) == 0;
+
+        $result = $this->queryBuilder->selectTicket($this->table, $values);
+
+        $valid = true;
+
+        foreach($result as $r){
+            $valid = ! ($r['id_funcion'] == $values['id_funcion'] && strtoupper($r['ubicacion']) == strtoupper($values['ubicacion']));
+        }
+
+        return $valid;
     }
 
     public function save() {
