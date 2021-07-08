@@ -16,6 +16,7 @@ class Controller {
     protected array $userOptions;
     protected array $menuOptions;
     protected array $footerLinks;
+    protected bool $logged;
     protected Session $session;
 
     public function __construct(){
@@ -63,6 +64,8 @@ class Controller {
                 'name' => 'mail'
             ]
         ];
+
+        $this->logged = boolval($_SESSION['userId']);
 
         if(! is_null($this->modelName)){
             

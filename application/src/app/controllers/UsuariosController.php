@@ -30,7 +30,10 @@ class UsuariosController extends Controller{
         $notification = true;
         $notification_type = $isValid ? SUCCESS : ERROR;
         if ($isValid) {
-            // Aca iria el codigo de sesion pero no funciona
+            $_SESSION['userId'] = $user['id'];
+            $_SESSION['userFullName'] = $user['nombre'] . ' ' . $user['apellido'];
+            header('Location: /');
+            die();
         }
         require $this->viewsDir . 'login_view.php';
     }
