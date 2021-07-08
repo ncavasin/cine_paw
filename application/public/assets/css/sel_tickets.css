@@ -33,6 +33,17 @@ input:not([type='submit']) {
     padding: .5rem .2rem
 }
 
+.tickets {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tickets > li {
+    padding: 1rem;
+    white-space: pre;
+}
+
 @media (min-width: 600px) {
     .content {
         max-width: 40vw;

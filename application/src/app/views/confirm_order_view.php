@@ -7,6 +7,7 @@
     ?>
     <link rel="stylesheet" type='text/css' href="assets/css/index.css" />
     <link rel="stylesheet" type='text/css' href="assets/css/main.css" />
+    <link rel="stylesheet" type='text/css' href="assets/css/botones.css" />
     <link rel="stylesheet" type='text/css' href="assets/css/sel_tickets.css" />
     <script src="/js/components/ConfirmOrder.js"></script>
 </head>
@@ -22,9 +23,10 @@
             <p><?= $date . ' ' . $hour . ' hs' ?></p>
             <p><?= $general ?> general</p>
             <p><?= $child ?> niños</p>
-            <ul>
+            <p>Butacas: </p>
+            <ul class='tickets'>
                 <?php foreach ($seats as $seat) : ?>
-                    <li><?= $seat ?></li>
+                    <li><?= $seat ?>, </li>
                 <?php endforeach; ?>
             </ul>
         </section>
