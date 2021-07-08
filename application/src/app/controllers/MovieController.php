@@ -9,6 +9,6 @@ class MovieController extends Controller {
     public ?string $modelName = Movie::class;
 
     public function movieInfo() {
-        require $this->viewsDir . 'sel_tickets_view.php';
+        require $this->viewsDir . 'confirm_order_view.php';
     }
 }

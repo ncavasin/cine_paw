@@ -16,7 +16,6 @@ h2{
 }
 
 section > p{
-    font-size: larger;
     max-width: 80ch;
     margin-bottom: 1rem;
 }
@@ -28,6 +27,11 @@ section > ul{
 section > ul > li{
     font-size: larger;
     line-height: 2.5rem;
+}
+
+section h3 {
+    font-size: larger;
+    margin-bottom: 1rem;
 }
 
 b{
