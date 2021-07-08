@@ -59,8 +59,6 @@ session_start();
 
 # Supported routes
 $router->get('/', 'PageController@index');
-// $router->get('/about', 'PageController@about');
-// $router->get('/services', 'PageController@services');
 
 $router->get('/login', 'PageController@login');
 $router->post('/login', 'UsuariosController@loginProcess');
