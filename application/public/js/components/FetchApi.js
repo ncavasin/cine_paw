@@ -21,11 +21,11 @@ class FetchApi {
 		fetch(target, {
 			method: 'POST',
 			headers: { 'content-type': 'application/json' },
-			body
+			body: JSON.stringify(body)
 		})
 			.then(r => {
 				console.log('response', r)
-				if (r.status >= 200 && r.status < 300) return r.json()
+				if (r.status >= 200 && r.status < 300) return r
 				else {
 					console.error('Error en fetch data ' + url, params)
 					return {}

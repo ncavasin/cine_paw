@@ -61,7 +61,6 @@ class TicketController extends Controller{
         if (isset($_SESSION)){
             $_SESSION['seats'] = $_POST['selected'];
             header("Location: /confirm_payment");
-            die();
         } else echo 'session timeout';
     }
 
@@ -76,7 +75,8 @@ class TicketController extends Controller{
             $hour = $_SESSION['hour'];
             $lang = $_SESSION['lang'];
             require $this->viewsDir . 'confirm_order_view.php';
-        }
+            die;
+        } else require $this->viewsDir . 'internal_error.php';
     }
 
     public function ticketInfo(){
