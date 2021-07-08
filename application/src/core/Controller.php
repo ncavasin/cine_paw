@@ -22,16 +22,35 @@ class Controller {
     public function __construct(){
         global $connection, $log;
         $this->viewsDir = __DIR__ . "/../app/views/";
-        $this->userOptions = [
-            [
-                'href' => '/login',
-                'name' => 'Ingresar'
-            ],
-            [
-                'href' => '/register',
-                'name' => 'Registrarse'
-            ]
-        ];
+
+        $this->logged = boolval($_SESSION['userId']);
+
+        if($this->logged){
+            $this->userOptions = [
+                [
+                    'href' => '/my_account',
+                    'name' => 'Mi Cuenta'
+                ],
+                [
+                    'href' => '/logout',
+                    'name' => 'Salir'
+                ],
+            ];
+                
+        }
+        else{
+            $this->userOptions = [
+                [
+                    'href' => '/login',
+                    'name' => 'Ingresar'
+                ],
+                [
+                    'href' => '/register',
+                    'name' => 'Registrarse'
+                    ]
+                ];
+        }
+
         $this->menuOptions = [
             [
                 'href' => '/now_playing',
@@ -46,6 +65,7 @@ class Controller {
                 'name' => 'Próximamente'
             ]
         ];
+
         $this->footerLinks = [
             [
                 'href' => 'https://www.facebook.com/cine_paw',
@@ -64,8 +84,7 @@ class Controller {
                 'name' => 'mail'
             ]
         ];
-
-        $this->logged = boolval($_SESSION['userId']);
+        
 
         if(! is_null($this->modelName)){
             
