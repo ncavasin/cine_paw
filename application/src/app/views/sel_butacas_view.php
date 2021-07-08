@@ -7,6 +7,7 @@
     ?>
     <link rel="stylesheet" type='text/css' href="assets/css/index.css" />
     <link rel="stylesheet" type='text/css' href="assets/css/sel_butacas.css" />
+    <link rel="stylesheet" type='text/css' href="assets/css/botones.css" />
     <script src="/js/components/SelSeat.js"></script>
 </head>
 

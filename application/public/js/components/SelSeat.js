@@ -9,6 +9,8 @@ class SelSeat {
     ticketsCount = 0
     occuped = []
     selected = []
+    targetCountDown = new Date(new Date().getTime() + 0.5*60000) // dentro de 5 minutos
+    intervalId = -1
 
     constructor() {
         const mainElm = document.querySelector('main')
@@ -21,6 +23,28 @@ class SelSeat {
             this.locateTickets(r.ticketsCount)
             mainElm.removeChild(loader) // no se ve, revisar estilo
         })
+        // creo la cuenta regresiva
+        this.intervalId = setInterval(this.updateCountdown, 1000)
+    }
+    
+    updateCountdown = () => {
+        const now = new Date()
+        const count = this.targetCountDown - now
+        const s = Math.floor((count % 60000) / 1000)
+        const m = Math.floor((count % (60000*60)) / 60000)
+        const cron = document.querySelector('.cron')
+        if (!cron) {
+            const container = document.querySelector('.cron-container')
+            container.appendChild(paw.newElement('p', `${m}:${s < 10? '0'+s : s}`, {class: 'cron'}))
+        } else cron.textContent = `${m}:${s < 10? '0'+s : s}`
+        if (s <= 0 && m <= 0){
+            clearInterval(this.intervalId)
+            const content = document.querySelector('main > section')
+            const main = document.querySelector('main')
+            main.removeChild(content)
+            main.appendChild(paw.newElement('p', 'Tiempo limite excedido'))
+            main.appendChild(paw.newElement('a', 'Inicio', {class: 'home-link', href: '/',}))
+        }
     }
 
     onSeatClick = seat => {
