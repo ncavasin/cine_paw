@@ -52,6 +52,12 @@ class TicketController extends Controller{
     }
 
     public function ticketInfo(){
+        $titulo = 'Comprar entrada';
+
+        require $this->viewsDir . 'sel_tickets_view.php';
+    }
+
+    public function newTicket(){
         global $log;
 
 
@@ -65,19 +71,30 @@ class TicketController extends Controller{
             "payment_id" => $_POST['payment_id']
         ];
         
-        echo '<pre>';
-        var_dump($values);
+        var_dump("newTicket endpoint hit", $values);
         
-
         if ($isValid) {
+
+            # Get model data
             $isValid = $this->model->get($values);
+
+
+        if ($values['pwd'] != $_POST['conf_pwd']) {
+            $isValid = false;
+            $notification_text = 'Las contraseñas no coinciden';
+        }
+
+            # Set model data with the posted content
             $result = $this->model->set($values);
+
+            # Check for error
             foreach($result as $item) {
                 $isValid = is_null($item['error']) && $isValid;
-                
-                var_dump('ITEM = ', $item);
             }
-            if ($isValid) $isValid = $this->model->save();
+            
+            if ($isValid) 
+                $isValid = $this->model->save();
+
             if (!$isValid) {
                 $notification_text = 'Error al intentar reservar la entrada, revise los logs para mas información.';
                 $log->debug('Error al reservar la entrada', [$result, $isValid]);
@@ -86,11 +103,10 @@ class TicketController extends Controller{
             $notification_text = 'No se ha podido reservar la entrada.';
         }
 
-        $titulo = 'Comprar entrada';
+        $titulo = 'Reserva entrada';
         $notification = true;
         $notification_type = $isValid ? SUCCESS : ERROR;
         require $this->viewsDir . 'sel_tickets_view.php';
     }
-
 
 }
