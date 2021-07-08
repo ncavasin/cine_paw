@@ -112,22 +112,32 @@ class TicketController extends Controller{
             "ubicacion"  => $sanitizedPost['ubicacion'],
             "payment_id" => $sanitizedPost['payment_id']
         ];
+
+        # Descomentar cuando estén los datos de session listos
+        // $sanitizedSession = $this->sanitize($_SESSION);
+
+        // $values = [
+        //     "id_usuario" => $sanitizedSession['id_usuario'],
+        //     "id_funcion" => $sanitizedSession['id_funcion'],
+        //     "ubicacion"  => $sanitizedSession['ubicacion'],
+        //     "payment_id" => $sanitizedSession['payment_id']
+        // ];
         
         if ($isValid) {
 
             # Me traigo todas las entradas que pertenecen a la funcion de la nueva entrada
             $isValid = $this->model->get($values);
 
-            var_dump("IS VALID?",$isValid);
             
             # Set model data with the posted content
             $result = $this->model->set($values);
-
+            
             # Check for error
             foreach($result as $item) {
                 $isValid = is_null($item['error']) && $isValid;
             }
             
+            var_dump("IS VALID?", $isValid);
             if ($isValid) 
                 $isValid = $this->model->save();
             else{
