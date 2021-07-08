@@ -76,6 +76,7 @@ $router->get('/movie_info', 'MovieController@movieInfo');
 $router->get('/select_tickets', 'TicketController@selectTickets');
 $router->post('/select_tickets', 'TicketController@setSelectedTickets');
 $router->post('/cancel_tickets', 'TicketController@cancelTickets');
+
 $router->get('/select_seats', 'TicketController@selectSeats');
 $router->get('/room_info', 'TicketController@getRoomInfo');
 $router->get('/ticket_info', 'TicketController@ticketInfo');
