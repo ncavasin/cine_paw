@@ -220,41 +220,47 @@ final class InsertData extends AbstractMigration
                 'id_sala' => 1,
                 'id_pelicula' => 1,
                 'id_tipo_funcion' => 1,
-                'horario' => '20:00:00'
+                'horario' => '20:00:00',
+                'idioma' => 'portugues'
             ],
             [
                 'id_sala' => 5,
                 'id_pelicula' => 4,
                 'id_tipo_funcion' => 3,
-                'horario' => '17:30:00'
+                'horario' => '17:30:00',
+                'idioma' => 'ingles'
             ],
 
             [
                 'id_sala' => 9,
                 'id_pelicula' => 4,
                 'id_tipo_funcion' => 2,
-                'horario' => '23:00:00'
+                'horario' => '23:00:00',
+                'idioma' => 'español'
             ],
 
             [
                 'id_sala' => 12,
                 'id_pelicula' => 5,
                 'id_tipo_funcion' => 3,
-                'horario' => '00:15:00'
+                'horario' => '00:15:00',
+                'idioma' => 'aleman'
             ],
 
             [
                 'id_sala' => 7,
                 'id_pelicula' => 4,
                 'id_tipo_funcion' => 2,
-                'horario' => '15:45:00'
+                'horario' => '15:45:00',
+                'idioma' => 'ingles'
             ],
 
             [
                 'id_sala' => 10,
                 'id_pelicula' => 3,
                 'id_tipo_funcion' => 1,
-                'horario' => '19:50:00'
+                'horario' => '19:50:00',
+                'idioma' => 'español'
             ],
         ];
 

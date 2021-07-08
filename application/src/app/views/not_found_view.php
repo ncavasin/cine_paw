@@ -9,7 +9,10 @@
             require 'parts/header_view.php';
         ?>
         <main> 
-            <h1> ERROR 404: Página no encontrada</h1>
+            <h1>ERROR 404 - SITIO EN CONSTRUCCION</h1>
+            <section>
+            
+            </section>
         </main>
 
         <?php 

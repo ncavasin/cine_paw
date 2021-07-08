@@ -1,19 +1,18 @@
+main > h1{
+    text-align:center;
+    color: var(--primary);
+    font-size: x-large;
+    margin: 2rem 0;
+}
 
-main{
+section{
     margin: var(--margin_section);
-    border-radius: var(--border_value);
-    height: 70vh;
+    min-height: var(--min_height);
     background-image: url("/assets/img/not_found.jpg");
     background-repeat: no-repeat;
     background-attachment: local;
     background-position: center;
+    border-radius: var(--border_value);
 }
 
-main > h1{
-    text-align:center;
-    color: white;
-    font-weight: bolder;
-    font-size: x-large;
-    padding: 2rem 0;
-}
 
