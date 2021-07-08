@@ -56,10 +56,6 @@ class Controller {
                 'href' => '/now_playing',
                 'name' => 'Cartelera'
             ],
-            // [
-            //     'href' => '/accout',
-            //     'name' => 'Mi cuenta'
-            // ],
             [
                 'href' => '/coming_soon',
                 'name' => 'Próximamente'
@@ -75,10 +71,6 @@ class Controller {
                 'href' => 'https://www.instagram.com/cine_paw',
                 'name' => 'instagram'
             ],
-            // [
-            //     'href' => 'https://www.linkedin.com/in/cine_paw',
-            //     'name' => 'linkedin'
-            // ],
             [
                 'href' => 'mailto:contacto@cinepaw.com',
                 'name' => 'mail'
