@@ -19,7 +19,7 @@
         <h2>Seleccion de entradas</h2>
         <section class='content card'>
             <h3>Iron Man 4 en ingles subtitulado</h3>
-            <form action="#" method="POST" target='_self'>
+            <form action="" method="POST" target='_self'>
                 <!-- Esta tabla se debe cargar por js mas adelante con los valores de las entradas y los disntintos tipos -->
                 <table class="table">
                     <thead>

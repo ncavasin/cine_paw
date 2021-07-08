@@ -2,6 +2,7 @@
 
 namespace Paw\app\controllers;
 
+use DateTime;
 use Paw\core\Controller;
 use Paw\app\models\Ticket;
 
@@ -14,6 +15,11 @@ class TicketController extends Controller{
 
     public function setSelectedTickets() {
         if (isset($_SESSION)) {
+            $_SESSION['movie'] = 'Iron Man 4';
+            $_SESSION['date'] = '09/07/2021';
+            $_SESSION['hour'] = '19:00';
+            $_SESSION['ticketType'] = '2D';
+            $_SESSION['lang'] = 'Subtitulado';
             $_SESSION['childCount'] = $_POST['child'];
             $_SESSION['generalCount'] = $_POST['general'];
             $_SESSION['ticketsCount'] = $_POST['general'] + $_POST['child'];
@@ -44,21 +50,41 @@ class TicketController extends Controller{
             ];
             header('content-type: application/json');
             echo json_encode($response);
-        } else echo '500 internal error';
+        } else echo 'session timeout';
     }
 
     public function selectSeats() {
         require $this->viewsDir . 'sel_butacas_view.php';
     }
 
+    public function setSelectedSeats() {
+        if (isset($_SESSION)){
+            $_SESSION['seats'] = $_POST['selected'];
+            header("Location: /confirm_payment");
+            die();
+        } else echo 'session timeout';
+    }
+
+    public function confirmPayment() {
+        if (isset($_SESSION)) {
+            $seats = $_SESSION['seats'];
+            $child = $_SESSION['childCount'];
+            $general = $_SESSION['generalCount'];
+            $movie = $_SESSION['movie'];
+            $ticketType = $_SESSION['ticketType'];
+            $date = $_SESSION['date'];
+            $hour = $_SESSION['hour'];
+            $lang = $_SESSION['lang'];
+            require $this->viewsDir . 'confirm_order_view.php';
+        }
+    }
+
     public function ticketInfo(){
         $titulo = 'Comprar entrada';
-
         require $this->viewsDir . 'sel_tickets_view.php';
     }
 
     private function sanitize($values){
-
         foreach($values as $v) {
             $values[$v] = htmlspecialchars($v);
             if(gettype($v) == 'string')

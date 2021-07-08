@@ -9,7 +9,7 @@ class SelSeat {
     ticketsCount = 0
     occuped = []
     selected = []
-    targetCountDown = new Date(new Date().getTime() + 0.5*60000) // dentro de 5 minutos
+    targetCountDown = new Date(new Date().getTime() + 5*60000) // dentro de 5 minutos
     intervalId = -1
 
     constructor() {
@@ -21,6 +21,12 @@ class SelSeat {
         FetchApi.get(window.location.origin+'/room_info', {}, r => {
             this.locateOccuped(r.occuped)
             this.locateTickets(r.ticketsCount)
+            const tContainer = document.querySelector('.tickets-container')
+            const contButton = paw.newElement('button', 'Continuar', {class: 'main_button'})
+            contButton.addEventListener('click', _ => {
+                FetchApi.post(window.location.origin+'/set_seats', {selected: this.selected})
+            })
+            tContainer.appendChild(contButton)
             mainElm.removeChild(loader) // no se ve, revisar estilo
         })
         // creo la cuenta regresiva

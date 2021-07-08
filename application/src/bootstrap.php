@@ -77,6 +77,8 @@ $router->post('/cancel_tickets', 'TicketController@cancelTickets');
 
 $router->get('/select_seats', 'TicketController@selectSeats');
 $router->get('/room_info', 'TicketController@getRoomInfo');
+$router->post('/set_seats', 'TicketController@setSelectedSeats');
+$router->get('/confirm_payment', 'TicketController@confirmPayment');
 
 $router->get('/ticket_info', 'TicketController@ticketInfo');
 $router->post('/new_ticket', 'TicketController@newTicket');

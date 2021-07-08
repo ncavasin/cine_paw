@@ -17,11 +17,11 @@
     <main>
         <h2>Resumen de compra</h2>
         <section class='content card'>
-            <h3>Iron Man 4</h3>
-            <p>3 entradas generales</p>
-            <p>1 entrada niños</p>
-            <p>Butacas: E5, E6, E7</p>
-            <p>Total: $1700</p>
+            <h3><?= $movie . ' (' . $lang . ' - ' . $lang . ')' ?></h3>
+            <p><?= $date . ' ' . $hour . ' hs' ?></p>
+            <p><?= $general ?> general</p>
+            <p><?= $child ?> niños</p>
+           
         </section>
     </main>
     <?php
