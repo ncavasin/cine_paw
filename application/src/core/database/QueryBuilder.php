@@ -30,25 +30,25 @@ class QueryBuilder {
         return $sentencia->fetchAll();
     }
 
-    public function selectEspecialista($especialidad) {
-        $join = '';
+    // public function selectEspecialista($especialidad) {
+    //     $join = '';
 
-        if (isset($especialidad) && $especialidad != '') 
-            $join = 'join especialidades as ep on ep.nombre = :especialidad join intermedia as it on ( es.id = it.id_especialista and ep.id = it.id_especialidad)';
+    //     if (isset($especialidad) && $especialidad != '') 
+    //         $join = 'join especialidades as ep on ep.nombre = :especialidad join intermedia as it on ( es.id = it.id_especialista and ep.id = it.id_especialidad)';
     
-        $query = 'select es.nombre, es.apellido, es.id from especialistas as es ' . $join;
-        $sentencia = $this->pdo->prepare($query);
+    //     $query = 'select es.nombre, es.apellido, es.id from especialistas as es ' . $join;
+    //     $sentencia = $this->pdo->prepare($query);
 
-        if (isset($especialidad) && $especialidad != '') $sentencia->bindValue(':especialidad', $especialidad);
-        $this->logger->info($query);
+    //     if (isset($especialidad) && $especialidad != '') $sentencia->bindValue(':especialidad', $especialidad);
+    //     $this->logger->info($query);
 
-        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
-        $sentencia->execute();
+    //     $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+    //     $sentencia->execute();
 
-        return $sentencia->fetchAll();
-    }
+    //     return $sentencia->fetchAll();
+    // }
 
-    # Solo funciona con id o mail
+    # Solo funciona con id o mail, sino trae todo
     public function select($table, $params = []){
         $where = '1 = 1';
 
@@ -60,6 +60,25 @@ class QueryBuilder {
 
         if (isset($params['id'])) $sentencia->bindValue(":id", $params['id']);
         if (isset($params['mail'])) $sentencia->bindValue(":mail", $params['mail']);
+
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+
+        return $sentencia->fetchAll();
+    }
+
+    public function selectTicket($table, $params){
+        // var_dump("INSIDE QB",$params);
+
+        if (! isset($params['id_funcion'])){
+            $this->logger->debug('Error seleccionando en tabla ' . $table . '. No se recibio id_funcion para filtrar con where.');
+            return false;
+        } 
+
+        $where = "id_funcion = :id_funcion";
+        $query = "select * from {$table} where {$where}";
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->bindValue(":id_funcion", $params['id_funcion']);
 
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
