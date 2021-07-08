@@ -55,6 +55,9 @@ final class FirstMigrations extends AbstractMigration
         $tablePeliculas->addColumn('titulo', 'string', [
                 'limit' => Constants::getTituloMax(), 
                 'null' => false])
+            ->addColumn('imdb_id', 'string', [
+                'limit' => Constants::getImdbMax(), 
+                'null' => true])
             ->addColumn('sinopsis', 'string', [
                 'limit' => Constants::getSinopsisMax(),
                 'null' => true])
@@ -123,6 +126,7 @@ final class FirstMigrations extends AbstractMigration
             ->addColumn('ubicacion', 'string', [
                 'limit' => Constants::getUbiMax(),
                 'null' => false])
+            ->addColumn('payment_id', 'integer', ['null' => true])
             ->addForeignKey('id_usuario', 'usuarios', 'id')
             ->addForeignKey('id_funcion', 'funciones', 'id')
             ->create();
