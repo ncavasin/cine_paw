@@ -23,33 +23,16 @@ class Controller {
         global $connection, $log;
         $this->viewsDir = __DIR__ . "/../app/views/";
 
-        $this->logged = boolval($_SESSION['userId']);
-
-        if($this->logged){
-            $this->userOptions = [
-                [
-                    'href' => '/my_account',
-                    'name' => 'Mi Cuenta'
-                ],
-                [
-                    'href' => '/logout',
-                    'name' => 'Salir'
-                ],
-            ];
-                
-        }
-        else{
-            $this->userOptions = [
-                [
-                    'href' => '/login',
-                    'name' => 'Ingresar'
-                ],
-                [
-                    'href' => '/register',
-                    'name' => 'Registrarse'
-                    ]
-                ];
-        }
+        $this->userOptions = [
+            [
+                'href' => '/login',
+                'name' => 'Ingresar'
+            ],
+            [
+                'href' => '/register',
+                'name' => 'Registrarse'
+                ]
+        ];
 
         $this->menuOptions = [
             [
@@ -76,7 +59,22 @@ class Controller {
                 'name' => 'mail'
             ]
         ];
-        
+
+        $this->logged = boolval($_SESSION['userId']);
+
+        if($this->logged){
+            $this->userOptions = [
+                [
+                    'href' => '/my_account',
+                    'name' => 'Mi cuenta',
+                ],
+                [
+                    'href' => '/logout',
+                    'name' => 'Salir'
+                ],
+            ];
+                
+        }
 
         if(! is_null($this->modelName)){
             
