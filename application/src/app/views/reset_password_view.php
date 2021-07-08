@@ -16,8 +16,8 @@
     ?>
     <main>
         <?php require 'parts/notification_view.php' ?>
+        <h2>REESTABLECER CONTRASEÑA</h2>
         <section>
-            <h2>REESTABLECER CONTRASEÑA</h2>
             <form action="#" method="POST" target="_self">
                 <fieldset>
                     <label for="email">Correo Electrónico:</label>

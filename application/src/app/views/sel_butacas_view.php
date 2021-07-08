@@ -15,7 +15,7 @@
     require 'parts/header_view.php';
     ?>
     <main>
-        <h2><?= $title || 'Selección de butacas' ?></h2>
+        <h2>SELECCIÓN DE BUTACAS</h2>
         <section class='content'>
             <section class='cron-container'>
                 <h3>Tiempo restante</h3>

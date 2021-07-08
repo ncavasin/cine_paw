@@ -37,24 +37,41 @@ final class FirstMigrations extends AbstractMigration
             ->addForeignKey('id_complejo', 'complejos', 'id')
             ->create();
 
-            
+
+        $tableGeneros = $this->table('generos');
+        $tableGeneros->addColumn('nombre', 'string', [
+            'limit' => Constants::getGenMax(),
+            'null' => false])
+            ->create();
+
+
+        // $tableAptitudes = $this->table('categorias');
+        // $tableAptitudes->addColumn('nombre', 'string', [
+        //     'limit' => 50,
+        //     'null' => false])
+        //     ->create();
+
         $tablePeliculas = $this->table('peliculas');
         $tablePeliculas->addColumn('titulo', 'string', [
                 'limit' => Constants::getTituloMax(), 
                 'null' => false])
+            ->addColumn('imdb_id', 'string', [
+                'limit' => Constants::getImdbMax(), 
+                'null' => true])
             ->addColumn('sinopsis', 'string', [
                 'limit' => Constants::getSinopsisMax(),
                 'null' => true])
             ->addColumn('duracion', 'integer', ['null' => false])
-            ->addColumn('genero', 'string', [
-                'limit' => Constants::getNomApMax(),
-                'null' => false])
-            ->addColumn('fecha_estreno', 'date', ['null' => false])
+            ->addColumn('id_genero', 'integer', ['null' => false])
+            // ->addColumn('id_categoria', 'integer', ['null' => false])
+            ->addColumn('fecha_estreno', 'date', ['null' => true])
             ->addColumn('trailer', 'string', [
                 'limit' => Constants::getLinkMax(),
                 'null' => true])
             ->addColumn('valoracion', 'integer', ['null' => true])
             ->addColumn('activa', 'boolean', ['null' => false])
+            ->addForeignKey('id_genero', 'generos', 'id')
+            // ->addForeignKey('id_categoria', 'categorias', 'id')
             ->create();
 
 
@@ -109,6 +126,7 @@ final class FirstMigrations extends AbstractMigration
             ->addColumn('ubicacion', 'string', [
                 'limit' => Constants::getUbiMax(),
                 'null' => false])
+            ->addColumn('payment_id', 'integer', ['null' => true])
             ->addForeignKey('id_usuario', 'usuarios', 'id')
             ->addForeignKey('id_funcion', 'funciones', 'id')
             ->create();

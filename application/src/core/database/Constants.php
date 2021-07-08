@@ -9,6 +9,7 @@ const MAIL_MAX = 50;
 const PWD_MIN = 7;
 const PWD_MAX = 255;
 
+const GEN_MAX = 35;
 const TITULO_MAX = 250;
 const SINOPSIS_MAX = 2500;
 const TIPO_DESC_MAX = 50;
@@ -16,6 +17,8 @@ const UBI_MAX = 3;      // ej: entrada J24 -> fila J col 24.
 const LINK_MAX = 300;
 const DIR_MAX = 100;
 const LOC_MAX = 100;
+const DNI_LEN = 8;
+const IMDB_MAX = 20;
 
 
 class Constants{
@@ -48,6 +51,10 @@ class Constants{
         return DIR_MAX;
     }
 
+    public static function getGenMax(){
+        return GEN_MAX;
+    }
+
     public static function getTituloMax(){
         return TITULO_MAX;
     }
@@ -63,15 +70,23 @@ class Constants{
     public static function getUbiMax(){
         return UBI_MAX;
     }
-    
+
+    public static function getLocMax(){
+        return LOC_MAX;
+    }
 
     public static function getLinkMax(){
         return LINK_MAX;
     }
-    
-    public static function getLocMax() {
-        return LOC_MAX;
+
+    public static function getDniMax(){
+        return DIR_MAX;
     }
+
+    public static function getImdbMax(){
+        return IMDB_MAX;
+    }
+
 }
 
 ?>
