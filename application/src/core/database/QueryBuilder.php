@@ -32,39 +32,69 @@ class QueryBuilder {
 
     public function selectEspecialista($especialidad) {
         $join = '';
+
         if (isset($especialidad) && $especialidad != '') 
             $join = 'join especialidades as ep on ep.nombre = :especialidad join intermedia as it on ( es.id = it.id_especialista and ep.id = it.id_especialidad)';
+    
         $query = 'select es.nombre, es.apellido, es.id from especialistas as es ' . $join;
         $sentencia = $this->pdo->prepare($query);
+
         if (isset($especialidad) && $especialidad != '') $sentencia->bindValue(':especialidad', $especialidad);
         $this->logger->info($query);
+
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
+
         return $sentencia->fetchAll();
     }
 
     # Solo funciona con id o mail
     public function select($table, $params = []){
         $where = '1 = 1';
+
         if (isset($params['id'])) $where = "id = :id";
         if (isset($params['mail'])) $where = "mail = :mail";
+
         $query = "select * from {$table} where {$where}";
         $sentencia = $this->pdo->prepare($query);
+
         if (isset($params['id'])) $sentencia->bindValue(":id", $params['id']);
         if (isset($params['mail'])) $sentencia->bindValue(":mail", $params['mail']);
+
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
+
         return $sentencia->fetchAll();
     }
 
     private function dispatcher($table, $keyword){
         if($table == 'usuarios'){
-            # IMPORTANTE sin la especificacion de las columnas antes, no anda (porque sino espera que le pases el id tambien y es autoincremental)
-            return '(nombre, apellido, dni, fnac, celular, mail, pwd) '. $keyword .' (:nombre, :apellido, :dni, :fnac, :celular, :mail, :pwd)';
+            return '(nombre, apellido, dni, fnac, celular, mail, pwd) '
+            . $keyword .' (:nombre, :apellido, :dni, :fnac, :celular, :mail, :pwd)';
         }
-        else if($table == 'turnos'){
-            return '(id_usuario, hora, id_especialista, minuto, fecha, orden_medica, nombre_orden_medica) ' 
-            . $keyword . ' (:id_usuario, :hora, :id_especialista, :minuto, :fecha, :orden_medica, :nombre_orden_medica)';
+        else if($table == 'complejos'){
+            return '(direccion, cp, localidad) ' . $keyword . ' (:direccion, :cp, :localidad)';
+        }
+        else if($table == 'salas'){
+            return '(id_complejo, numero) ' . $keyword . ' (:id_complejo, :numero)';
+        }
+        else if($table == 'generos'){
+            return '(nombre) ' . $keyword . ' (:nombre)';
+        }
+        else if($table == 'peliculas'){
+            return '(titulo, imdb_id, sinopsis, duracion, id_genero, fecha_estreno, trailer, valoracion, activa) ' 
+            . $keyword . ' (:titulo, :imdb_id, :sinopsis, :duracion, :id_genero, :fecha_estreno, :trailer, :valoracion, :activa)';
+        }
+        else if($table == 'tipo_funciones'){
+            return '(descripcion, precio) ' . $keyword . ' (:descripcion, :precio)';
+        }
+        else if($table == 'funciones'){
+            return '(id_sala, id_pelicula, id_tipo_funcion, horario) ' 
+            . $keyword . ' (:id_sala, :id_pelicula, :id_tipo_funcion, :horario)';
+        }
+        else if($table == 'entradas'){
+            return '(id_usuario, id_funcion, ubicacion, payment_id) ' 
+            . $keyword . ' (:id_usuario, :id_funcion, :ubicacion, :payment_id)';
         }
         return null;
     }
