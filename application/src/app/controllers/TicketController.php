@@ -58,13 +58,17 @@ class TicketController extends Controller{
     }
 
     private function sanitize($values){
-
-        foreach($values as $v) {
-            $values[$v] = htmlspecialchars($v);
+        
+        # Escape everything
+        foreach($values as $k => $v) {
+            $values[$k] = htmlspecialchars($v);
+            
+            # To mayus if string
             if(gettype($v) == 'string')
-                $values[$v] = strtoupper($v);
+                $values[$k] = strtoupper($v);
         }
 
+        return $values;
     }
 
     public function newTicket(){
@@ -73,17 +77,14 @@ class TicketController extends Controller{
         $isValid = true;
         $notification_text = 'Entrada reservada con éxito!';        
         
-        # setear los campos  -> devuelve bool
+        $sanitizedPost = $this->sanitize($_POST);
+
         $values = [
-            "id_usuario" => $_POST['id_usuario'],
-            "id_funcion" => $_POST['id_funcion'],
-            "ubicacion" => strtoupper($_POST['ubicacion']),
-            "payment_id" => $_POST['payment_id']
+            "id_usuario" => $sanitizedPost['id_usuario'],
+            "id_funcion" => $sanitizedPost['id_funcion'],
+            "ubicacion"  => $sanitizedPost['ubicacion'],
+            "payment_id" => $sanitizedPost['payment_id']
         ];
-
-        // $values = $this->sanitize($values);
-
-        // var_dump("SANITIZED newTicket endpoint hit", $values);
         
         if ($isValid) {
 

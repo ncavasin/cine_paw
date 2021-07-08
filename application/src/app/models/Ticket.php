@@ -4,6 +4,7 @@ namespace Paw\app\models;
 
 use Exception;
 use Paw\core\Model;
+use Paw\core\database\Constants;
 
 class Ticket extends Model{
      
@@ -43,6 +44,8 @@ class Ticket extends Model{
     }
 
     private function validUbicacion($ubicacion){
+        if(! isset($ubicacion) || strlen($ubicacion) > Constants::getUbiMax())
+            return false;
         return true;
     }
 
