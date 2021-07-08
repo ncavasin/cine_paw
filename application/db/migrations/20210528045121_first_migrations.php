@@ -68,7 +68,7 @@ final class FirstMigrations extends AbstractMigration
             ->addColumn('trailer', 'string', [
                 'limit' => Constants::getLinkMax(),
                 'null' => true])
-            ->addColumn('valoracion', 'integer', ['null' => true])
+            ->addColumn('valoracion', 'float', ['null' => true])
             ->addColumn('activa', 'boolean', ['null' => false])
             ->addForeignKey('id_genero', 'generos', 'id')
             // ->addForeignKey('id_categoria', 'categorias', 'id')
