@@ -4,7 +4,7 @@
     </h1>
     <nav>
         <ul class="menu_user">
-            <?= $this->logged? 'Hola, ' . $_SESSION['userId'] .'!' : '' ?>
+            <?= $this->logged? 'Hola, ' . $_SESSION['userName'] .'!' : '' ?>
 
             <?php foreach($this->userOptions as $uOpt):?>
                 <li><a href="<?= $uOpt['href']?>" target="_self" class="user_opt"><?=$uOpt['name']?></a></li>

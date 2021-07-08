@@ -34,6 +34,7 @@ class UsuariosController extends Controller{
         $notification_type = $isValid ? SUCCESS : ERROR;
         if ($isValid) {
             $_SESSION['userId'] = $user['id'];
+            $_SESSION['userName'] = $user['nombre'];
             $_SESSION['userFullName'] = $user['nombre'] . ' ' . $user['apellido'];
             header('Location: /');
             die();
