@@ -83,7 +83,7 @@ $router->get('/confirm_payment', 'TicketController@confirmPayment');
 $router->get('/ticket_info', 'TicketController@ticketInfo');
 $router->post('/new_ticket', 'TicketController@newTicket');
 
-# $router->get('/payment', 'PaymentController@paymentInfo');
+$router->get('/payment_result', 'TicketController@newTicket');
 # Add all needed routes 
 
 ?>

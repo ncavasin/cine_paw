@@ -3,22 +3,27 @@
 namespace Paw\app\controllers;
 
 use DateTime;
+use Exception;
 use Paw\core\Controller;
 use Paw\app\models\Ticket;
 
-class TicketController extends Controller{
+class TicketController extends Controller
+{
     public ?string $modelName = Ticket::class;
 
-    public function selectTickets() {
+    public function selectTickets()
+    {
         require $this->viewsDir . 'sel_tickets_view.php';
     }
 
-    public function setSelectedTickets() {
+    public function setSelectedTickets()
+    {
         if (isset($_SESSION)) {
             $_SESSION['movie'] = 'Iron Man 4';
             $_SESSION['date'] = '09/07/2021';
             $_SESSION['hour'] = '19:00';
             $_SESSION['ticketType'] = '2D';
+            $_SESSION['functionId'] = 1;
             $_SESSION['lang'] = 'Subtitulado';
             $_SESSION['childCount'] = $_POST['child'];
             $_SESSION['generalCount'] = $_POST['general'];
@@ -29,15 +34,17 @@ class TicketController extends Controller{
         }
     }
 
-    public function cancelTickets() {
+    public function cancelTickets()
+    {
         if (isset($_SESSION)) {
             session_destroy();
         }
     }
 
-    public function getRoomInfo() {
+    public function getRoomInfo()
+    {
         # consulta a la base de datos para obtener los asientos que estan ocupados
-        if (isset($_SESSION)){
+        if (isset($_SESSION)) {
             $response = [
                 'ticketsCount' => $_SESSION['ticketsCount'],
                 'occuped' => [
@@ -53,18 +60,22 @@ class TicketController extends Controller{
         } else echo 'session timeout';
     }
 
-    public function selectSeats() {
+    public function selectSeats()
+    {
         require $this->viewsDir . 'sel_butacas_view.php';
     }
 
-    public function setSelectedSeats() {
-        if (isset($_SESSION)){
-            $_SESSION['seats'] = $_POST['selected'];
+    public function setSelectedSeats()
+    {
+        if (isset($_SESSION)) {
+            $post = trim(file_get_contents('php://input'));
+            $_SESSION['seats'] = json_decode($post, true)['selected'];
             header("Location: /confirm_payment");
         } else echo 'session timeout';
     }
 
-    public function confirmPayment() {
+    public function confirmPayment()
+    {
         if (isset($_SESSION)) {
             $seats = $_SESSION['seats'];
             $child = $_SESSION['childCount'];
@@ -79,79 +90,91 @@ class TicketController extends Controller{
         } else require $this->viewsDir . 'internal_error.php';
     }
 
-    public function ticketInfo(){
+    public function payment_result()
+    {
+    }
+
+    public function ticketInfo()
+    {
         $titulo = 'Comprar entrada';
         require $this->viewsDir . 'sel_tickets_view.php';
     }
 
-    private function sanitize($values){
-        
+    private function sanitize($values)
+    {
+
         # Escape everything
-        foreach($values as $k => $v) {
+        foreach ($values as $k => $v) {
             $values[$k] = htmlspecialchars($v);
-            
+
             # To mayus if string
-            if(gettype($v) == 'string')
+            if (gettype($v) == 'string')
                 $values[$k] = strtoupper($v);
         }
 
         return $values;
     }
 
-    public function newTicket(){
-        global $log;
+    public function newTicket()
+    {
+        try {
+            global $log;
 
-        $isValid = true;
-        $notification_text = 'Entrada reservada con éxito!';        
-        
-        $sanitizedPost = $this->sanitize($_POST);
+            $isValid = true;
+            $notification_text = 'Entrada reservada con éxito!';
 
-        $values = [
-            "id_usuario" => $sanitizedPost['id_usuario'],
-            "id_funcion" => $sanitizedPost['id_funcion'],
-            "ubicacion"  => $sanitizedPost['ubicacion'],
-            "payment_id" => $sanitizedPost['payment_id']
-        ];
+            $sanitizedPost = $this->sanitize($_POST);
 
-        # Descomentar cuando estén los datos de session listos
-        // $sanitizedSession = $this->sanitize($_SESSION);
-
-        // $values = [
-        //     "id_usuario" => $sanitizedSession['id_usuario'],
-        //     "id_funcion" => $sanitizedSession['id_funcion'],
-        //     "ubicacion"  => $sanitizedSession['ubicacion'],
-        //     "payment_id" => $sanitizedSession['payment_id']
-        // ];
-        
-        if ($isValid) {
-
-            # Me traigo todas las entradas que pertenecen a la funcion de la nueva entrada
-            $isValid = $this->model->get($values);
-
-            
-            # Set model data with the posted content
-            $result = $this->model->set($values);
-            
-            # Check for error
-            foreach($result as $item) {
-                $isValid = is_null($item['error']) && $isValid;
+            # armo el array de tickets
+            $values = [];
+            if (isset($_SESSION)) {
+                $seats = $_SESSION['seats'];
+                $userId = $_SESSION['userId'];
+                $functionId = $_SESSION['functionId'];
+                $paymentId = null; # simula mercadopago id
+                foreach ($seats as $key => $value) {
+                    $newItem = [
+                        'id_usuario' => $userId,
+                        'id_funcion' => $functionId,
+                        'ubicacion' => $value,
+                        'payment_id' => $paymentId,
+                    ];
+                    $values[$key] = $newItem;
+                }
+            } else {
+                require $this->viewsDir . 'internal_error_view.php';
+                die();
             }
-            
-            var_dump("IS VALID?", $isValid);
-            if ($isValid) 
-                $isValid = $this->model->save();
-            else{
-                $notification_text = 'Error al intentar reservar la entrada, revise los logs para mas información.';
-                $log->debug('Error al reservar la entrada', [$result, $isValid]);
+            if ($isValid) {
+
+                # Me traigo todas las entradas que pertenecen a la funcion de la nueva entrada
+                # $isValid = $this->model->get($values);
+
+                # Set model data with the posted content
+                # $result = $this->model->set($values);
+
+                # Check for error
+                /* foreach ($result as $item) {
+                    $isValid = is_null($item['error']) && $isValid;
+                } */
+
+                if ($isValid)
+                    $isValid = $this->model->save($values);
+                else {
+                    $notification_text = 'Error al intentar reservar la entrada, revise los logs para mas información.';
+                    $log->debug('Error al reservar la entrada', [$result, $isValid]);
+                }
+            } else {
+                $notification_text = 'No se ha podido reservar la entrada.';
             }
-        } else {
-            $notification_text = 'No se ha podido reservar la entrada.';
+
+            $titulo = 'Reserva entrada';
+            $notification = true;
+            $notification_type = $isValid ? SUCCESS : ERROR;
+            require $this->viewsDir . 'index_view.php';
+        } catch (Exception $e) {
+            echo '<pre>';
+            echo var_dump($e);
         }
-
-        $titulo = 'Reserva entrada';
-        $notification = true;
-        $notification_type = $isValid ? SUCCESS : ERROR;
-        require $this->viewsDir . 'sel_tickets_view.php';
     }
-
 }

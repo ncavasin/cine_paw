@@ -89,6 +89,7 @@ class Ticket extends Model{
         $valid = true;
 
         foreach($result as $r){
+            // falta contemplar arreglo de values
             $valid = ! ($r['id_funcion'] == $values['id_funcion'] && strtoupper($r['ubicacion']) == strtoupper($values['ubicacion']));
         }
 
@@ -97,20 +98,10 @@ class Ticket extends Model{
 
     public function save($tickets) {
         try{
-            foreach($tickets as $tKey => $tValue){
-                
-                $params = [];
-                
-                foreach( $this->fields as $key => $field){
-                    $params[$key] = $field['value'];
-                    
-                    var_dump($params);
-                }
+            foreach($tickets as $ticket){
+                $this->queryBuilder->insert($this->table, $ticket);
             }
-
-            
-            return $this->queryBuilder->insert($this->table, $params);
-
+            return  true;
         } catch(Exception $e){
             echo '<pre>';
             echo var_dump($e);

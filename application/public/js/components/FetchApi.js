@@ -5,6 +5,7 @@ class FetchApi {
 		fetch(url)
 			.then(r => {
 				console.log('response', r)
+				if (r.redirected) window.location.href = r.url
 				if (r.status >= 200 && r.status < 300) return r.json()
 				else {
 					console.error('Error en fetch data ' + url, params)
@@ -25,7 +26,7 @@ class FetchApi {
 		})
 			.then(r => {
 				console.log('response', r)
-                if (r.redirected) window.location.href = r.url
+				if (r.redirected) window.location.href = r.url
 				if (r.status >= 200 && r.status < 300) return r
 				else {
 					console.error('Error en fetch data ' + url, params)

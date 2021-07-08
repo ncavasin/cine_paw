@@ -112,7 +112,7 @@ class QueryBuilder {
         }
         else if($table == 'entradas'){
             return '(id_usuario, id_funcion, ubicacion, payment_id) ' 
-            . $keyword . ' (:id_usuario, :id_funcion, :ubicacion, :payment_id)';
+            . $keyword . ' (:id_usuario, :id_funcion, :ubicacion, :payment_id)'; # agregar payment_id
         }
         return null;
     }
@@ -131,7 +131,6 @@ class QueryBuilder {
                 $this->logger->debug('Error insertando en tabla ' . $table . '. No existe.');
                 #throw new QBInvalidTable('No existe la tabla ' . $table);
             }
-
             $query = $query . $values;
 
             try{
