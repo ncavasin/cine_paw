@@ -70,6 +70,8 @@ $router->get('/register', 'PageController@register');
 $router->post('/register', 'UsuariosController@register');
 
 $router->get('/movie_info', 'MovieController@movieInfo');
+
+$router->get('/ticket_info', 'TicketController@ticketInfo');
 # Add all needed routes 
 
 ?>
