@@ -1,5 +1,7 @@
 .butacas-container {
     overflow-x: auto;
+    padding-left: 2rem; 
+    padding-right: 2rem;
 }
 
 .butaca {
@@ -26,5 +28,12 @@ rect {
 }
 
 @media (min-width: 600px) {
+    .cron-container {
+        float: right;
+    }
     
+    .tickets-container {
+        float:right;
+        clear: right;
+    }
 }

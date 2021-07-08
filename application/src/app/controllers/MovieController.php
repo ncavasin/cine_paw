@@ -8,6 +8,6 @@ use const Paw\core\database\FILE_SIZE_MAX;
 
 class MovieController extends Controller {
     public function movieInfo() {
-        require $this->viewsDir . 'sel_butacas_view.php';
+        require $this->viewsDir . 'sel_tickets_view.php';
     }
 }
