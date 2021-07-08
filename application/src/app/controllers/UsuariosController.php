@@ -65,18 +65,23 @@ class UsuariosController extends Controller{
         # verificar que el mail no esté registrado, le paso todos los values pero usa solo mail
         
         if ($isValid) {
+            
             $isValid = $this->model->get($values);
+            
             $result = $this->model->set($values);
+            
             foreach($result as $item) {
                 $isValid = is_null($item['error']) && $isValid;
             }
-            if ($isValid) $isValid = $this->model->save();
+            
+            if ($isValid) 
+                $isValid = $this->model->save();
+
             if (!$isValid) {
                 $notification_text = 'Error al ingresar datos desde el formulario, revise los logs para mas información';
                 $log->debug('Error al guardar el usuario', [$result, $isValid]);
             }
-            # si salio bien le damos save
-            # si hay problemas devolvemos error
+
         } else {
             $notification_text = 'Ya existe una cuenta registrada con el correo ' . $values['mail'];
         }
