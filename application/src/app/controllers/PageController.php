@@ -25,7 +25,7 @@ class PageController extends Controller{
         $notification_type = $isValid ? SUCCESS : ERROR;
         require $this->viewsDir . 'login_view.php';
     }
-
+    
     public function register($notification = false, $isValid = false, $notification_text = 'Uno o mas campos no son validos')
     {
         $titulo = 'Registrarse';
