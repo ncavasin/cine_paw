@@ -27,6 +27,7 @@
     
     --padding_section: 2rem;
     --margin_section: 2rem;
+    --min_height: 75vh;
 }
 
 *{
