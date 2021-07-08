@@ -3,9 +3,11 @@
 namespace Paw\app\controllers;
 
 use Paw\core\Controller;
+use Paw\app\models\Ticket;
 
 class TicketController extends Controller{
-    
+    public ?string $modelName = Ticket::class;
+
     public function ticketInfo(){
         global $log;
 
@@ -19,6 +21,10 @@ class TicketController extends Controller{
             "ubicacion" => $_POST['ubicacion'],
             "payment_id" => $_POST['payment_id']
         ];
+        
+        echo '<pre>';
+        var_dump($values);
+        
 
         if ($isValid) {
             $isValid = $this->model->get($values);
