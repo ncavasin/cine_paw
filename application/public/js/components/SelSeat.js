@@ -25,7 +25,7 @@ class SelSeat {
             const contButton = paw.newElement('button', 'Continuar', {class: 'main_button'})
             contButton.addEventListener('click', _ => {
                 FetchApi.post(window.location.origin+'/set_seats', {selected: this.selected}, r => {
-                   if (r.status >= 200 && r.status < 300) window.location.href = window.location.origin + '/confirm_payment'
+                   //if (r.status >= 200 && r.status < 300) window.location.href = window.location.origin + '/confirm_payment'
                 })
             })
             tContainer.appendChild(contButton)
