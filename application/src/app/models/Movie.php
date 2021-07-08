@@ -8,7 +8,7 @@ use Paw\core\database\Constants;
 
 class Movie extends Model{
      
-    # 1-1 relation against Usuarios table
+    # 1-1 relation
     public $table = 'peliculas';
 
     # Table columns

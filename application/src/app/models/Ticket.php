@@ -4,11 +4,10 @@ namespace Paw\app\models;
 
 use Exception;
 use Paw\core\Model;
-use Paw\core\database\Constants;
 
 class Ticket extends Model{
      
-    # 1-1 relation against Usuarios table
+    # 1-1 relation 
     public $table = 'entradas';
 
     # Table columns
