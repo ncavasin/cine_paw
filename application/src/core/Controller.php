@@ -55,7 +55,7 @@ class Controller {
                 'name' => 'instagram'
             ],
             // [
-            //     'href' => 'https://www.linkedin.com/dentalmedicalgroup',
+            //     'href' => 'https://www.linkedin.com/in/cine_paw',
             //     'name' => 'linkedin'
             // ],
             [
