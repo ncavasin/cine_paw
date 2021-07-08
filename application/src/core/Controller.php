@@ -33,25 +33,25 @@ class Controller {
         ];
         $this->menuOptions = [
             [
-                'href' => '/services',
+                'href' => '/now_playing',
                 'name' => 'Cartelera'
             ],
             [
-                'href' => '/coverages',
+                'href' => '/search',
                 'name' => 'Buscar'
             ],
             [
-                'href' => '/myturns',
+                'href' => '/coming_soon',
                 'name' => 'Próximamente'
             ]
         ];
         $this->footerLinks = [
             [
-                'href' => 'https://www.facebook.com/dentalmedicalgroup',
+                'href' => 'https://www.facebook.com/cine_paw',
                 'name' => 'facebook'
             ],
             [
-                'href' => 'https://www.instagram.com/dentalmedicalgroup',
+                'href' => 'https://www.instagram.com/cine_paw',
                 'name' => 'instagram'
             ],
             // [
@@ -59,10 +59,11 @@ class Controller {
             //     'name' => 'linkedin'
             // ],
             [
-                'href' => 'mailto:contacto@dentalmedicalgroup.com',
+                'href' => 'mailto:contacto@cinepaw.com',
                 'name' => 'mail'
             ]
         ];
+
         if(! is_null($this->modelName)){
             
             # Construct QB
