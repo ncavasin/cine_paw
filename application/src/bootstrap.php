@@ -55,6 +55,8 @@ $request = new Request();
 $router = new Router;
 $router->setLogger($log);
 
+session_start();
+
 # Supported routes
 $router->get('/', 'PageController@index');
 // $router->get('/about', 'PageController@about');
@@ -72,6 +74,10 @@ $router->post('/register', 'UsuariosController@register');
 $router->get('/movie_info', 'MovieController@movieInfo');
 
 $router->get('/select_tickets', 'TicketController@selectTickets');
+$router->post('/select_tickets', 'TicketController@setSelectedTickets');
+$router->post('/cancel_tickets', 'TicketController@cancelTickets');
+$router->get('/select_seats', 'TicketController@selectSeats');
+$router->get('/room_info', 'TicketController@getRoomInfo');
 $router->get('/ticket_info', 'TicketController@ticketInfo');
 
 // $router->get('/payment', 'PaymentController@paymentInfo');

@@ -12,6 +12,45 @@ class TicketController extends Controller{
         require $this->viewsDir . 'sel_tickets_view.php';
     }
 
+    public function setSelectedTickets() {
+        if (isset($_SESSION)) {
+            $_SESSION['childCount'] = $_POST['child'];
+            $_SESSION['generalCount'] = $_POST['general'];
+            $_SESSION['ticketsCount'] = $_POST['general'] + $_POST['child'];
+            header("Location: /select_seats");
+        } else {
+            require $this->viewsDir . 'internal_error_view.php';
+        }
+    }
+
+    public function cancelTickets() {
+        if (isset($_SESSION)) {
+            session_destroy();
+        }
+    }
+
+    public function getRoomInfo() {
+        # consulta a la base de datos para obtener los asientos que estan ocupados
+        if (isset($_SESSION)){
+            $response = [
+                'ticketsCount' => $_SESSION['ticketsCount'],
+                'occuped' => [
+                    '0' => 'a1',
+                    '1' => 'a2',
+                    '2' => 'h4',
+                    '3' => 'h5',
+                    '4' => 'h6',
+                ]
+            ];
+            header('content-type: application/json');
+            echo json_encode($response);
+        } else echo '500 internal error';
+    }
+
+    public function selectSeats() {
+        require $this->viewsDir . 'sel_butacas_view.php';
+    }
+
     public function ticketInfo(){
         global $log;
 

@@ -6,8 +6,8 @@
     require 'parts/head_view.php'
     ?>
     <link rel="stylesheet" type='text/css' href="assets/css/index.css" />
-    <link rel="stylesheet" type='text/css' href="assets/css/main.css" />
     <link rel="stylesheet" type='text/css' href="assets/css/sel_butacas.css" />
+    <script src="/js/components/SelSeat.js"></script>
 </head>
 
 <body>

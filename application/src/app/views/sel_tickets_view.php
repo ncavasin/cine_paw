@@ -34,13 +34,13 @@
                         <tr>
                             <td>General</td>
                             <td>$700</td>
-                            <td class='cant'><input name='general' value='0' type='number' min='0' max='6' /></td>
+                            <td class='cant'><input required name='general' value='0' type='number' min='0' max='6' /></td>
                             <td>$0</td>
                         </tr>
                         <tr>
                             <td>Niño</td>
                             <td>$300</td>
-                            <td class='cant'><input name='child' value='0' type='number' min='0' max='6' /></td>
+                            <td class='cant'><input required name='child' value='0' type='number' min='0' max='6' /></td>
                             <td>$0</td>
                         </tr>
                         <tr>
