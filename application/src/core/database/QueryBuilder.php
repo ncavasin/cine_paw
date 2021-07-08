@@ -68,8 +68,7 @@ class QueryBuilder {
     }
 
     public function selectTicket($table, $params){
-        // var_dump("INSIDE QB",$params);
-
+        
         if (! isset($params['id_funcion'])){
             $this->logger->debug('Error seleccionando en tabla ' . $table . '. No se recibio id_funcion para filtrar con where.');
             return false;
@@ -108,8 +107,8 @@ class QueryBuilder {
             return '(descripcion, precio) ' . $keyword . ' (:descripcion, :precio)';
         }
         else if($table == 'funciones'){
-            return '(id_sala, id_pelicula, id_tipo_funcion, horario) ' 
-            . $keyword . ' (:id_sala, :id_pelicula, :id_tipo_funcion, :horario)';
+            return '(id_sala, id_pelicula, id_tipo_funcion, horario, idioma) ' 
+            . $keyword . ' (:id_sala, :id_pelicula, :id_tipo_funcion, :horario, :idioma)';
         }
         else if($table == 'entradas'){
             return '(id_usuario, id_funcion, ubicacion, payment_id) ' 

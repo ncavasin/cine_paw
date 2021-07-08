@@ -16,6 +16,7 @@ class Functions extends Model{
         "id_pelicula"       => ["value" => null, "error" => null],
         "id_tipo_funcion"   => ["value" => null, "error" => null],
         "horario"           => ["value" => null, "error" => null],
+        "idioma"            => ["value" => null, "error" => null]
     ];
 
 
@@ -53,6 +54,17 @@ class Functions extends Model{
         }
         
         $this->fields['horario']['value'] = $horario;
+    }
+
+    private function validIdioma($idioma){
+        return true;
+    }
+
+    public function setIdioma($idioma){
+        if(! $this->validIdioma($idioma))
+            $this->fields['idioma']['error'] = "Idioma inválido.";
+
+        $this->fields['idioma']['value'] = $idioma;
     }
     
     public function set(array $values){
