@@ -8,6 +8,10 @@ use Paw\app\models\Ticket;
 class TicketController extends Controller{
     public ?string $modelName = Ticket::class;
 
+    public function selectTickets() {
+        require $this->viewsDir . 'sel_tickets_view.php';
+    }
+
     public function ticketInfo(){
         global $log;
 

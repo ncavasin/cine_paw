@@ -1,7 +1,6 @@
 
 main{
     margin: var(--margin_section);
-    background-color: var(--primary);
     border-radius: var(--border_value);
     height: 70vh;
     background-image: url("/assets/img/not_found.jpg");

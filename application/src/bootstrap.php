@@ -71,6 +71,7 @@ $router->post('/register', 'UsuariosController@register');
 
 $router->get('/movie_info', 'MovieController@movieInfo');
 
+$router->get('/select_tickets', 'TicketController@selectTickets');
 $router->get('/ticket_info', 'TicketController@ticketInfo');
 
 // $router->get('/payment', 'PaymentController@paymentInfo');
