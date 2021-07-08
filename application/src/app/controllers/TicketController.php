@@ -56,7 +56,7 @@ class TicketController extends Controller{
 
 
         $isValid = true;
-        $notification_text = 'Entrada comprada con éxito!';
+        $notification_text = 'Entrada reservada con éxito!';
         # setear los campos  -> devuelve bool
         $values = [
             "id_usuario" => $_POST['id_usuario'],
@@ -74,16 +74,16 @@ class TicketController extends Controller{
             $result = $this->model->set($values);
             foreach($result as $item) {
                 $isValid = is_null($item['error']) && $isValid;
+                
+                var_dump('ITEM = ', $item);
             }
             if ($isValid) $isValid = $this->model->save();
             if (!$isValid) {
-                $notification_text = 'Error al intentar comprar, revise los logs para mas información.';
-                $log->debug('Error al comprar la entrada', [$result, $isValid]);
+                $notification_text = 'Error al intentar reservar la entrada, revise los logs para mas información.';
+                $log->debug('Error al reservar la entrada', [$result, $isValid]);
             }
-            # si salio bien le damos save
-            # si hay problemas devolvemos error
         } else {
-            $notification_text = 'No se ha podido comprar la entrada.';
+            $notification_text = 'No se ha podido reservar la entrada.';
         }
 
         $titulo = 'Comprar entrada';

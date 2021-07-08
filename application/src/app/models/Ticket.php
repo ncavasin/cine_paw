@@ -63,7 +63,7 @@ class Ticket extends Model{
             $this->fields['payment_id']['error'] = 'Id de Payment inválida.';
         }
         
-        $this->fields['payment_id']['value'] = 10;//$idPayment;
+        $this->fields['payment_id']['value'] = 10; //$idPayment;
     }
 
     public function set(array $values){
@@ -88,7 +88,10 @@ class Ticket extends Model{
     public function save() {
         try{
             $params = [];
-            foreach( $this->fields as $key => $field) $params[$key] = $field['value'];
+            foreach( $this->fields as $key => $field){
+                $params[$key] = $field['value'];
+                var_dump($params);
+            }
             return $this->queryBuilder->insert($this->table, $params);
         } catch(Exception $e){
             echo '<pre>';
